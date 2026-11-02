@@ -34,7 +34,7 @@
 **从需求到交付的流程**
 
 ```mermaid
-flowchart TB
+flowchart LR
     D["产品资料、剧本与制作需求"] --> C["总控台：选批次、派单与进度追踪"]
     subgraph Managed["四套生产系统"]
         A["可组合分镜"]
