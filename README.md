@@ -15,6 +15,10 @@ AI automation, e-commerce tools and independent product development.
 
 **代表项目：AI 视频生产与交付体系**
 
+[![多系统任务编排界面](https://github.com/user-attachments/assets/433fb5db-44bf-4f3b-b67d-791ed7824a4d)](cases/ai-video-production.md)
+
+[查看完整案例与流程图 →](cases/ai-video-production.md)
+
 面向需要持续制作产品广告的内容团队，搭建分镜、UGC口播、整片生成、参考片复刻和完整剧本制作五条生产路线，并将其中四套接入统一总控。
 
 - 从产品资料、剧本或参考视频出发，组织素材准备、生成、审核、重做、字幕配音和剪辑。
@@ -74,3 +78,4 @@ AI automation, e-commerce tools and independent product development.
 Python · JavaScript / TypeScript · React / React Native · Node.js · Streamlit · SQLite · FFmpeg · 浏览器自动化 · 飞书 API · 模型 API 集成
 
 案例采用匿名业务描述；公开材料用于说明个人能力与交付方式。
+
