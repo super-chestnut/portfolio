@@ -57,26 +57,11 @@
 
 统一生产与交付：分镜、UGC 口播、整片生成和完整剧本制作由总控编排。五条路线的具体分工见上表。
 
-```mermaid
-flowchart TD
-    A["产品与需求"] --> B["总控派单"]
-    B --> C["生成素材"]
-    C --> D{"人工审核"}
-    D -->|重做| C
-    D -->|通过| E["声音字幕后期"]
-    E --> F["编号与归档"]
-    F --> G["交付回写"]
-```
+<img src="https://github.com/user-attachments/assets/b2826999-3f6b-411e-9e7a-39453c407966" alt="统一生产与交付流程" width="640" />
 
 参考片复刻：使用独立工作台，按参考镜头分段处理并组装导出。
 
-```mermaid
-flowchart TD
-    A["参考片与产品"] --> B["拆段与重构"]
-    B --> C{"人工审核"}
-    C -->|重做| B
-    C -->|通过| D["组装与导出"]
-```
+<img src="https://github.com/user-attachments/assets/dded9aba-74b8-42d7-89be-82704ac01963" alt="参考片复刻独立流程" width="640" />
 
 **三个关键实现**
 
