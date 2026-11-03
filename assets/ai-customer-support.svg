@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+<title id="title">网站内嵌 AI 客服机器人 — 流程示意</title>
+<desc id="desc">访客在网站内提问，由第三方客服平台结合知识库与配置的问答及分流工作流处理，在网站聊天窗口查看回复。项目包含 Shopify 后台接入和窗口 UI 优化。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#8A9E95"/></marker></defs>
+<rect width="1000" height="640" fill="#FFFFFF"/>
+<g font-family="'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif">
+<rect x="48" y="38" width="6" height="36" rx="3" fill="#214D43"/>
+<text x="72" y="66" fill="#203A33" font-size="30" font-weight="700">网站内嵌 AI 客服机器人</text>
+<text x="72" y="103" fill="#65756F" font-size="19">客服平台实施 · 知识库与工作流 · Shopify 接入 · 窗口优化</text>
+<rect x="830" y="40" width="122" height="36" rx="18" fill="#EEF4F0"/>
+<text x="891" y="65" text-anchor="middle" fill="#214D43" font-size="18" font-weight="600">流程示意</text>
+<rect x="190" y="162" width="620" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="500" y="198" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">访客提问</text>
+<text x="500" y="227" text-anchor="middle" fill="#65756F" font-size="18">在网站内发起问题</text>
+<path d="M 500 248 V 290" fill="none" stroke="#8A9E95" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="190" y="296" width="620" height="86" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="500" y="332" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">平台问答与分流</text>
+<text x="500" y="361" text-anchor="middle" fill="#65756F" font-size="18">结合配置的知识库与工作流</text>
+<path d="M 500 382 V 424" fill="none" stroke="#8A9E95" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="190" y="430" width="620" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="500" y="466" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">网站聊天窗口展示回复</text>
+<text x="500" y="495" text-anchor="middle" fill="#65756F" font-size="18">在站内查看回答与进行对话</text>
+<line x1="72" y1="586" x2="928" y2="586" stroke="#E1E7E3"/>
+<text x="500" y="617" text-anchor="middle" fill="#65756F" font-size="17">流程示意 · 展示站内问答接入范围</text>
+</g></svg>

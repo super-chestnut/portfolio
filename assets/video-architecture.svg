@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1020" viewBox="0 0 1180 1020" role="img" aria-labelledby="title desc">
+<title id="title">AI 视频生产与交付架构 — 公开架构示意</title>
+<desc id="desc">主干为产品、剧本与需求进入总控，总控派单到分镜、UGC 口播、整片生成和完整剧本四套并行原系统，使用共享能力，统一编号归档并交付飞书。参考片复刻为独立工作台：参考片与产品输入、拆段重构与审核、时间线导出，不接入总控。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#8A9E95"/></marker></defs>
+<rect width="1180" height="1020" fill="#FFFFFF"/>
+<g font-family="'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif">
+<rect x="48" y="38" width="6" height="36" rx="3" fill="#214D43"/>
+<text x="72" y="66" text-anchor="start" fill="#203A33" font-size="32" font-weight="700">AI 视频生产与交付架构</text>
+<text x="72" y="105" text-anchor="start" fill="#65756F" font-size="21" font-weight="400">四套原系统由总控编排，参考片复刻独立运行</text>
+<rect x="958" y="40" width="174" height="36" rx="18" fill="#EEF4F0"/>
+<text x="1045" y="65" text-anchor="middle" fill="#214D43" font-size="18" font-weight="600">公开架构示意</text>
+<rect x="40" y="140" width="800" height="820" rx="20" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="878" y="140" width="262" height="820" rx="20" fill="#FAFBFA" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="66" y="181" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">统一生产与交付</text>
+<text x="900" y="181" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">参考片复刻</text>
+<text x="900" y="214" text-anchor="start" fill="#65756F" font-size="18" font-weight="400">独立运行</text>
+<rect x="225" y="208" width="430" height="74" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="440.0" y="240.0" text-anchor="middle" fill="#214D43" font-size="24" font-weight="600">产品 / 剧本 / 需求</text>
+<text x="440.0" y="270.0" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">任务输入</text>
+<path d="M 440 282 V 316" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="225" y="322" width="430" height="86" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="440.0" y="360.0" text-anchor="middle" fill="#214D43" font-size="24" font-weight="600">总控</text>
+<text x="440.0" y="390.0" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">派单 · 状态 · 审核</text>
+<text x="66" y="441" text-anchor="start" fill="#65756F" font-size="18" font-weight="400">四个并行原系统</text>
+<path d="M 440 408 V 456 H 150 M 440 456 H 720" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 456 V 484" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="65" y="490" width="170" height="92" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="150.0" y="545.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">分镜</text>
+<path d="M 150 582 V 628" fill="none" stroke="#8A9E95" stroke-width="2"/>
+<path d="M 340 456 V 484" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="255" y="490" width="170" height="92" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="340.0" y="545.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">UGC 口播</text>
+<path d="M 340 582 V 628" fill="none" stroke="#8A9E95" stroke-width="2"/>
+<path d="M 530 456 V 484" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="445" y="490" width="170" height="92" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="530.0" y="545.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">整片生成</text>
+<path d="M 530 582 V 628" fill="none" stroke="#8A9E95" stroke-width="2"/>
+<path d="M 720 456 V 484" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="635" y="490" width="170" height="92" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="720.0" y="545.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">完整剧本</text>
+<path d="M 720 582 V 628" fill="none" stroke="#8A9E95" stroke-width="2"/>
+<path d="M 150 628 H 720" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round"/>
+<path d="M 440 628 V 654" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="100" y="660" width="680" height="98" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="440.0" y="704.0" text-anchor="middle" fill="#214D43" font-size="24" font-weight="600">共享能力</text>
+<text x="440.0" y="734.0" text-anchor="middle" fill="#65756F" font-size="21" font-weight="400">持久状态 · 素材版本 · 角色资产 · 媒体后期</text>
+<path d="M 440 758 V 798" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="130" y="804" width="620" height="94" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="440.0" y="846.0" text-anchor="middle" fill="#214D43" font-size="24" font-weight="600">统一编号与归档</text>
+<text x="440.0" y="876.0" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">飞书交付与结果回写</text>
+<rect x="900" y="275" width="218" height="90" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="1009.0" y="315.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">参考片 + 产品</text>
+<text x="1009.0" y="345.0" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">参考素材输入</text>
+<path d="M 1009 365 V 450" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="900" y="456" width="218" height="100" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="1009.0" y="501.0" text-anchor="middle" fill="#214D43" font-size="23" font-weight="600">拆段重构与审核</text>
+<text x="1009.0" y="531.0" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">逐段处理与确认</text>
+<path d="M 1009 556 V 674" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="900" y="680" width="218" height="90" rx="15" fill="#FFFFFF" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="1009.0" y="734.0" text-anchor="middle" fill="#214D43" font-size="24" font-weight="600">时间线导出</text>
+<text x="1009" y="863" text-anchor="middle" fill="#214D43" font-size="19" font-weight="600">独立工作台</text>
+<text x="1009" y="894" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">不接入总控派单</text>
+<text x="590" y="993" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">公开架构示意 · 连接表示业务阶段关系</text>
+</g></svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="970" viewBox="0 0 1000 970" role="img" aria-labelledby="title desc">
+<title id="title">竞品视频采集与内容洞察 — 流程示意</title>
+<desc id="desc">Meta 广告库采集、TikTok 竞品视频采集汇入参考素材与来源记录，依次进入人工选择并提交分析，依次进入Gemini 结构化分析，依次进入飞书结果与人工复审，依次进入创意讨论与制作参考。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#8A9E95"/></marker></defs>
+<rect width="1000" height="970" fill="#FFFFFF"/>
+<g font-family="'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif">
+<rect x="48" y="38" width="6" height="36" rx="3" fill="#214D43"/>
+<text x="72" y="66" fill="#203A33" font-size="30" font-weight="700">竞品视频采集与内容洞察</text>
+<text x="72" y="103" fill="#65756F" font-size="19">多个独立模块，按业务需要组合</text>
+<rect x="830" y="40" width="122" height="36" rx="18" fill="#EEF4F0"/>
+<text x="891" y="65" text-anchor="middle" fill="#214D43" font-size="18" font-weight="600">流程示意</text>
+<rect x="60" y="144" width="400" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="260" y="180" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">Meta 广告库采集</text>
+<text x="260" y="209" text-anchor="middle" fill="#65756F" font-size="18">广告信息与可关联视频</text>
+<rect x="540" y="144" width="400" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="740" y="180" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">TikTok 竞品视频采集</text>
+<text x="740" y="209" text-anchor="middle" fill="#65756F" font-size="18">竞品视频参考素材</text>
+<path d="M 260 230 V 254 H 500 V 274" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 740 230 V 254 H 500 V 274" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="190" y="280" width="620" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="500" y="316" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">参考素材与来源记录</text>
+<text x="500" y="345" text-anchor="middle" fill="#65756F" font-size="18">整理素材并保留参考线索</text>
+<path d="M 500 366 V 400" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="190" y="406" width="620" height="86" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="500" y="442" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">人工选择并提交分析</text>
+<text x="500" y="471" text-anchor="middle" fill="#65756F" font-size="18">确定分析维度与目标记录</text>
+<path d="M 500 492 V 526" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="190" y="532" width="620" height="86" rx="15" fill="#EEF5F0" stroke="#A5BEB0" stroke-width="1.5"/>
+<text x="500" y="568" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">Gemini 结构化分析</text>
+<text x="500" y="597" text-anchor="middle" fill="#65756F" font-size="18">创意视频分析 / 历史优秀广告画像</text>
+<path d="M 500 618 V 652" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="190" y="658" width="620" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="500" y="694" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">飞书结果与人工复审</text>
+<text x="500" y="723" text-anchor="middle" fill="#65756F" font-size="18">回写结构化结果，复核模型结论</text>
+<path d="M 500 744 V 778" fill="none" stroke="#8A9E95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="190" y="784" width="620" height="86" rx="15" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<text x="500" y="820" text-anchor="middle" fill="#214D43" font-size="25" font-weight="600">创意讨论与制作参考</text>
+<text x="500" y="849" text-anchor="middle" fill="#65756F" font-size="18">由团队选择后续制作方向</text>
+<line x1="72" y1="916" x2="928" y2="916" stroke="#E1E7E3"/>
+<text x="500" y="947" text-anchor="middle" fill="#65756F" font-size="17">人工决定分析与制作方向；采集线索用于内容参考。</text>
+</g></svg>

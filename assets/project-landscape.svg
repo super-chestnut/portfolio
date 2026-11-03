@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="930" viewBox="0 0 1180 930" role="img" aria-labelledby="title desc">
+<title id="title">独立项目与交付能力 — 公开架构示意</title>
+<desc id="desc">九个项目领域：AI 视频、竞品视频、Android 双人日记、Shopify 网站重构、Amazon 评论、Shopify 商品自动化、Meta 广告规则、达人协作和客户沟通工具。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#8A9E95"/></marker></defs>
+<rect width="1180" height="930" fill="#FFFFFF"/>
+<g font-family="'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif">
+<rect x="48" y="38" width="6" height="36" rx="3" fill="#214D43"/>
+<text x="72" y="66" text-anchor="start" fill="#203A33" font-size="32" font-weight="700">独立项目与交付能力</text>
+<text x="72" y="105" text-anchor="start" fill="#65756F" font-size="21" font-weight="400">需求 · 设计 · 开发 · 部署 · 迭代</text>
+<rect x="958" y="40" width="174" height="36" rx="18" fill="#EEF4F0"/>
+<text x="1045" y="65" text-anchor="middle" fill="#214D43" font-size="18" font-weight="600">公开架构示意</text>
+<rect x="55" y="152" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="77" y="174" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="96" y="196" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">01</text>
+<text x="77" y="246" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">AI 视频生产与总控</text>
+<text x="77" y="291" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">五条制作路线 · 四系统总控</text>
+<text x="77" y="328" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">审核 · 恢复 · 归档交付</text>
+<rect x="419" y="152" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="441" y="174" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="460" y="196" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">02</text>
+<text x="441" y="246" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">竞品视频洞察</text>
+<text x="441" y="291" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">Meta · TikTok · Gemini</text>
+<text x="441" y="328" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">采集 · 去重 · 分析</text>
+<rect x="783" y="152" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="805" y="174" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="824" y="196" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">03</text>
+<text x="805" y="246" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">Android 双人日记</text>
+<text x="805" y="291" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">双人协作 · 离线记录</text>
+<text x="805" y="328" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">云同步 · 应用签名</text>
+<rect x="55" y="396" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="77" y="418" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="96" y="440" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">04</text>
+<text x="77" y="490" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">Shopify 网站重构</text>
+<text x="77" y="535" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">竞品页面比较</text>
+<text x="77" y="572" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">页面开发与交互</text>
+<rect x="419" y="396" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="441" y="418" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="460" y="440" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">05</text>
+<text x="441" y="490" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">Amazon 评论分析</text>
+<text x="441" y="535" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">评论整理 · 痛点归纳</text>
+<text x="441" y="572" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">产品与运营解决建议</text>
+<rect x="783" y="396" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="805" y="418" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="824" y="440" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">06</text>
+<text x="805" y="490" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">Shopify 商品自动化</text>
+<text x="805" y="535" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">字段 · 素材 · 文案处理</text>
+<text x="805" y="572" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">商品草稿 · 结果回表</text>
+<rect x="55" y="640" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="77" y="662" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="96" y="684" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">07</text>
+<text x="77" y="734" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">Meta 广告规则监控</text>
+<text x="77" y="779" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">人工设定业务规则</text>
+<text x="77" y="816" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">全天监控 · 规则关停</text>
+<rect x="419" y="640" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="441" y="662" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="460" y="684" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">08</text>
+<text x="441" y="734" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">达人合作协作</text>
+<text x="441" y="779" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">插件资料整理</text>
+<text x="441" y="816" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">邮件辅助 · 合作档案</text>
+<rect x="783" y="640" width="342" height="218" rx="18" fill="#F7F9F8" stroke="#D4DED8" stroke-width="1.5"/>
+<rect x="805" y="662" width="38" height="30" rx="7" fill="#214D43"/>
+<text x="824" y="684" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="600">09</text>
+<text x="805" y="734" text-anchor="start" fill="#214D43" font-size="24" font-weight="600">客户沟通工具</text>
+<text x="805" y="779" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">网站内嵌 AI 客服</text>
+<text x="805" y="816" text-anchor="start" fill="#65756F" font-size="20" font-weight="400">邮件审核与案件协作</text>
+<line x1="55" y1="887" x2="1125" y2="887" stroke="#E1E7E3"/>
+<text x="590" y="916" text-anchor="middle" fill="#65756F" font-size="18" font-weight="400">从具体业务流程出发，交付可使用、可维护的工具。</text>
+</g></svg>
