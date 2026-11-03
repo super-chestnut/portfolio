@@ -38,7 +38,7 @@
 
 <img src="../assets/storefront-assistant-mobile.jpg" alt="使用虚构资料的手机端购物问答演示" width="300" />
 
-[打开演示说明与下载入口](../examples/storefront-guide.md)
+[在线体验独立演示](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html) · [打开演示说明与下载入口](../examples/storefront-guide.md)
 
 **可以承接的服务**
 
