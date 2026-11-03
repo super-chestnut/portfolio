@@ -4,11 +4,13 @@
 
 这是为作品集从零编写的独立代码示例：虚构桌面用品商店“桌间”，展示商品陈列、购物问答、条款溯源与联系人工流程。商品、价格和政策均为自建演示内容。
 
+[在线体验购物问答](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html)：使用虚构商品与政策、本地知识检索，未接入语言模型。
+
 ## 本地打开
 
 下载本目录后，用现代浏览器直接打开 [customer-assistant.html](customer-assistant.html)。无需安装依赖、运行服务器或配置账号；HTML 内含全部 CSS、JavaScript 与 SVG 插图，离线可用。
 
-GitHub 的文件浏览页显示源码。体验交互需要将文件下载到本地再打开。
+GitHub 的文件浏览页显示源码；可以通过在线入口体验，也可以下载到本地打开。
 
 ## 可以实际操作
 

@@ -6,7 +6,7 @@
 
 ## 网店购物问答
 
-[查看使用说明](storefront-guide.md) · [下载并打开单文件 HTML](customer-assistant.html)
+[在线体验](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html) · [查看使用说明](storefront-guide.md) · [下载并打开单文件 HTML](customer-assistant.html)
 
 虚构桌面用品商店，包含商品陈列、FAQ 问答、依据条款、未知问题分流和人工请求预览。离线可打开，当前使用本地关键词检索，不连接语言模型、订单或发信服务。
 
