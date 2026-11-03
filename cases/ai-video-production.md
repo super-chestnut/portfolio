@@ -1,6 +1,6 @@
 # 独立构建五路线 AI 视频生产与协作交付体系
 
-[返回作品集](../README.md)
+[返回作品集](../README.md) · [观看完整视频样片](https://super-chestnut.github.io/portfolio/#selected-work) · [微信项目咨询](https://super-chestnut.github.io/portfolio/#contact)
 
 我独立设计、开发并维护五套具有不同制作流程的 AI 视频工具，并开发总控台统一编排其中四套。工作覆盖需求分析、产品交互、模型与业务接口集成、任务调度、媒体后处理、部署交付和持续迭代。
 
