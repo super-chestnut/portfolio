@@ -2,6 +2,8 @@
 
 **从业务问题、流程设计，到可部署工具和持续维护，我独立完成交付。**
 
+[网页版作品集](https://super-chestnut.github.io/portfolio/) · [在线交互演示](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html)
+
 我帮助电商与内容团队，把素材采集、视频分析、内容生产、商品运营和客户服务中的重复工作，整理成可以实际运行的系统。也独立开发并持续维护 Android 双人生活记录产品。
 
 AI automation · E-commerce systems · Browser extensions · Independent Android product
@@ -22,7 +24,7 @@ AI automation · E-commerce systems · Browser extensions · Independent Android
 
 **值得看的部分：** 多系统适配如何组织；已付费任务如何恢复；素材版本如何与审核绑定；并发发布如何维持统一编号。
 
-[![多系统任务编排真实界面](assets/01-dispatch.jpg)](cases/ai-video-production.md)
+![多系统任务编排真实界面](assets/01-dispatch.jpg)
 
 [阅读完整案例 →](cases/ai-video-production.md) · [查看工程设计说明 →](technical-notes.md)
 
@@ -40,7 +42,7 @@ AI automation · E-commerce systems · Browser extensions · Independent Android
 
 **值得看的部分：** 离线队列与版本冲突、带原图备份、积分幂等、角色边界、Keystore 激活与覆盖升级。
 
-<a href="cases/couple-diary-app.md"><img src="assets/01-diary-feed.png" alt="演示数据运行的真实日记界面" width="210" /></a> <a href="cases/couple-diary-app.md"><img src="assets/02-life-tools.png" alt="双人生活工具入口" width="210" /></a>
+<img src="assets/01-diary-feed.png" alt="演示数据运行的真实日记界面" width="210" /> <img src="assets/02-life-tools.png" alt="双人生活工具入口" width="210" />
 
 [阅读独立产品案例 →](cases/couple-diary-app.md)
 
@@ -55,7 +57,7 @@ AI automation · E-commerce systems · Browser extensions · Independent Android
 | Shopify 商品资料自动化 | 商品字段与素材处理、AI 文案规则、变体与价格、草稿创建和回表 | [查看案例](cases/shopify-product-automation.md) |
 | Meta 广告规则监控 | 将人工制定的条件转成全天监控、判断与关停执行流程 | [查看案例](cases/meta-ad-rules.md) |
 | 达人资料与合作协作 | 插件配套、身份与轮次匹配、邮件草稿、阶段规则与合作档案维护 | [查看案例](cases/creator-workflow.md) |
-| 独立站 AI 客服机器人 | 在独立站接入网站聊天机器人，为访客提供问答入口 | [查看案例](cases/ai-customer-support.md) |
+| 独立站 AI 客服机器人 | 客服平台接入、知识库与工作流配置、Shopify 设置及聊天窗口优化 | [查看案例](cases/ai-customer-support.md) |
 | 邮件审核与案件协作 | 邮件归并、订单背景、回复草稿、人工审核、发送对账与异步协作 | [查看案例](cases/email-case-workflow.md) |
 
 ## 技术能力如何落到项目里
@@ -73,7 +75,7 @@ AI automation · E-commerce systems · Browser extensions · Independent Android
 
 ## 两个独立演示
 
-- [虚构网店购物问答](examples/storefront-guide.md)：可下载后直接打开的交互页面，体验知识条款、问答、分流和人工请求预览；采用本地检索，不连接模型与真实订单。
+- [在线体验虚构网店购物问答](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html) · [说明与源码](examples/storefront-guide.md)：可下载后直接打开的交互页面，体验知识条款、问答、分流和人工请求预览；采用本地检索，不连接模型与真实订单。
 - [工作流恢复与版本审核](examples/workflow-guide.md)：可运行的 Python / SQLite 示例，展示幂等、持久化、素材版本校验和不确定提交处理，附 6 项测试。
 
 这两份示例均为作品集从零编写，使用自建数据，不包含公司实现或配置。
