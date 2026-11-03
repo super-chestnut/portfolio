@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>桌间 · 购物问答交互演示</title>
+  <style>
+    :root { --paper:#f7f9fc; --white:#fff; --mist:#edf2f9; --line:#d9e2ef; --blue:#2455df; --ink:#1e2a3a; --muted:#617080; --shadow:0 18px 70px #1e2a3a18; }
+    * { box-sizing:border-box; }
+    [hidden] { display:none !important; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.75 "Microsoft YaHei","PingFang SC",sans-serif; }
+    button,input,select { font:inherit; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    button { cursor:pointer; }
+    button:disabled { cursor:default; opacity:.5; }
+    a { color:inherit; text-decoration:none; }
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { outline:3px solid #83a4ff; outline-offset:4px; }
+    button { border:0; }
+    .wrap { width:min(1160px,calc(100% - 64px)); margin:auto; }
+    .notice { padding:9px 20px; background:var(--ink); color:#e8efff; text-align:center; font-size:11px; letter-spacing:.025em; }
+    .header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:28px 0; border-bottom:1px solid var(--line); }
+    .brand { display:flex; gap:14px; align-items:center; }
+    .brand-mark { display:grid; place-items:center; width:44px; height:44px; color:white; background:var(--blue); font-size:23px; font-weight:800; }
+    .brand-name { font-size:23px; font-weight:800; letter-spacing:.15em; line-height:1.3; }
+    .utility { font:10px/1.7 Consolas,"Microsoft YaHei",monospace; letter-spacing:.14em; color:var(--muted); }
+    .nav { display:flex; gap:27px; align-items:center; font-size:13px; }
+    .text-button { background:transparent; color:var(--ink); padding:6px 0; border-bottom:1px solid transparent; }
+    .text-button:hover { color:var(--blue); border-bottom-color:var(--blue); }
+    .hero { display:grid; grid-template-columns:.9fr 1.1fr; gap:50px; align-items:center; padding:66px 0 58px; }
+    .eyebrow { display:flex; gap:10px; align-items:center; color:var(--blue); font-size:12px; letter-spacing:.12em; }
+    .eyebrow::before { content:""; width:22px; height:2px; background:currentColor; }
+    h1 { margin:20px 0 22px; font-size:clamp(34px,4.1vw,54px); line-height:1.4; letter-spacing:-.045em; font-weight:800; }
+    .hero-copy p { max-width:360px; margin:0; color:var(--muted); font-size:14px; line-height:2; }
+    .actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:29px; }
+    .primary,.secondary { display:inline-flex; justify-content:center; align-items:center; gap:12px; min-height:46px; padding:10px 20px; border-radius:7px; font-size:13px; }
+    .primary { color:var(--white); background:var(--blue); }
+    .primary:hover { background:#1643c5; }
+    .secondary { color:var(--ink); background:var(--white); border:1px solid var(--line); }
+    .secondary:hover { border-color:var(--blue); color:var(--blue); }
+    .hero-stage { position:relative; min-width:0; margin:0; }
+    .hero-stage svg { display:block; width:100%; height:auto; }
+    .stage-label { display:flex; justify-content:space-between; gap:12px; margin:9px 17px 0; font-size:11px; color:var(--muted); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:22px; }
+    h2 { margin:0; font-size:23px; letter-spacing:-.025em; }
+    .section-head p { margin:4px 0 0; font-size:12px; color:var(--muted); }
+    .products { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .product { overflow:hidden; background:var(--white); border:1px solid var(--line); border-radius:12px; }
+    .product-picture { height:207px; background:var(--mist); display:grid; place-items:center; }
+    .product-picture svg { width:100%; height:100%; }
+    .product-content { padding:22px; }
+    .product-title { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+    h3 { font-size:17px; margin:0; }
+    .price { color:var(--blue); font-size:19px; font-weight:700; white-space:nowrap; }
+    .product-content p { margin:9px 0 19px; font-size:12px; color:var(--muted); }
+    .product-question { width:100%; padding:11px 12px; color:var(--ink); text-align:left; background:var(--paper); border-radius:5px; font-size:12px; }
+    .product-question span { float:right; color:var(--blue); }
+    .product-question:hover { background:#e8efff; }
+    .service-band { display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:35px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .service-item { padding:22px 0; }
+    .service-item strong { display:block; font-size:12px; font-weight:600; }
+    .service-item span { display:block; margin-top:4px; color:var(--muted); font-size:11px; }
+    .footer { padding:25px 0 118px; display:flex; gap:24px; justify-content:space-between; color:var(--muted); font-size:11px; }
+    .launcher { position:fixed; right:28px; bottom:25px; display:flex; align-items:center; gap:10px; min-height:52px; padding:12px 20px; border-radius:9px; color:white; background:var(--blue); box-shadow:0 9px 28px #2455df30; z-index:20; }
+    .launcher svg { width:20px; height:20px; }
+    .chat { position:fixed; right:28px; bottom:92px; width:390px; height:min(625px,calc(100dvh - 127px)); display:flex; flex-direction:column; background:white; border:1px solid var(--line); border-radius:15px; overflow:hidden; box-shadow:var(--shadow); z-index:30; }
+    .chat-head { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:17px 18px; color:white; background:var(--ink); }
+    .chat-name { font-size:15px; font-weight:700; }
+    .chat-status { font-size:10px; color:#cbd7ec; margin-top:3px; }
+    .chat-tools { display:flex; gap:8px; }
+    .chat-tools button { background:transparent; color:#e4ebf8; font-size:11px; padding:7px 2px; }
+    .chat-tools button:hover { color:white; text-decoration:underline; }
+    .messages { flex:1; overflow-y:auto; overscroll-behavior:contain; padding:20px 17px 10px; min-height:0; background:#fbfcfe; }
+    .message { width:fit-content; max-width:94%; margin:0 0 16px; padding:12px 14px; background:var(--mist); border-radius:2px 12px 12px 12px; font-size:12px; line-height:1.85; overflow-wrap:anywhere; }
+    .message.user { margin-left:auto; background:var(--blue); color:white; border-radius:12px 2px 12px 12px; }
+    .message p { margin:0; white-space:pre-wrap; }
+    .citation { display:block; margin-top:10px; padding:7px 0 0; border-top:1px solid #cedaec; background:transparent; color:#3157aa; font-size:10px; text-align:left; }
+    .handoff-action { display:block; margin-top:10px; padding:7px 10px; border:1px solid #b5c7eb; border-radius:5px; background:white; color:var(--blue); font-size:11px; }
+    .quick-questions { display:flex; gap:7px; flex-wrap:wrap; padding:11px 17px; border-top:1px solid var(--line); }
+    .quick-questions button { padding:5px 8px; color:var(--muted); background:white; border:1px solid var(--line); border-radius:5px; font-size:10px; }
+    .quick-questions button:hover { border-color:var(--blue); color:var(--blue); }
+    .composer { display:flex; gap:9px; padding:0 17px 10px; }
+    .composer input { flex:1; width:0; min-width:0; padding:11px 10px; border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink); font-size:12px; }
+    .composer button { padding:0 14px; color:white; background:var(--blue); border-radius:6px; font-size:12px; }
+    .privacy-note { margin:0 17px 12px; font-size:9px; color:var(--muted); }
+    dialog { width:min(620px,calc(100% - 32px)); max-height:85dvh; padding:0; border:1px solid var(--line); border-radius:14px; color:var(--ink); box-shadow:var(--shadow); }
+    dialog::backdrop { background:#1e2a3a65; }
+    .dialog-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:22px 25px; border-bottom:1px solid var(--line); }
+    .dialog-head h2 { font-size:20px; }
+    .dialog-head button { padding:5px 0; background:transparent; color:var(--muted); font-size:12px; }
+    .dialog-body { padding:0 25px 25px; }
+    .dialog-intro { color:var(--muted); font-size:12px; margin:20px 0; }
+    .faq-rule { padding:17px 0; border-bottom:1px solid var(--line); scroll-margin-top:20px; }
+    .faq-rule h3 { font-size:14px; color:var(--blue); }
+    .faq-rule p { margin:7px 0; font-size:12px; }
+    .faq-rule small { color:var(--muted); font-size:10px; }
+    .steps { padding-left:21px; font-size:13px; }
+    .steps li { padding:4px 0 9px 5px; }
+    .request-label { display:block; margin:20px 0 7px; font-size:12px; }
+    select { width:100%; padding:10px 12px; border:1px solid var(--line); background:var(--paper); border-radius:6px; color:var(--ink); }
+    .request-preview { margin:18px 0 0; padding:14px; background:var(--mist); border-radius:7px; white-space:pre-wrap; font-size:12px; overflow-wrap:anywhere; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (max-width:780px) {
+      .wrap { width:calc(100% - 40px); }
+      .hero { gap:25px; grid-template-columns:1fr; padding:37px 0 36px; }
+      .hero-copy p { max-width:440px; }
+      .hero-stage { max-width:600px; }
+      .products { gap:15px; }
+      .product-content { padding:16px; }
+      .product-title { display:block; }
+      .product-content p { min-height:42px; }
+      .product-picture { height:160px; }
+    }
+    @media (max-width:560px) {
+      .notice { padding:8px 16px; font-size:10px; text-align:left; }
+      .header { padding:21px 0; gap:10px; }
+      .brand-mark { width:38px; height:38px; font-size:21px; }
+      .brand { gap:10px; }
+      .brand-name { font-size:20px; }
+      .nav { gap:14px; font-size:11px; }
+      .nav a { display:none; }
+      h1 { font-size:37px; margin:17px 0; }
+      .hero { padding-top:29px; gap:25px; }
+      .hero-copy p { font-size:13px; }
+      .actions { margin-top:23px; }
+      .hero-stage { margin:0 -7px; }
+      .stage-label { font-size:9px; }
+      .section-head { align-items:start; }
+      .section-head > .utility { display:none; }
+      .products { grid-template-columns:1fr; gap:17px; }
+      .product { display:grid; grid-template-columns:42% 58%; }
+      .product-picture { height:100%; min-height:191px; }
+      .product-content { padding:19px 14px; }
+      .product-content p { min-height:0; margin:7px 0 14px; font-size:11px; }
+      .product-title h3 { font-size:16px; }
+      .price { font-size:17px; }
+      .product-question { font-size:10px; padding:9px; }
+      .service-band { grid-template-columns:1fr; margin-top:26px; }
+      .service-item { padding:14px 0; border-bottom:1px solid var(--line); }
+      .service-item:last-child { border-bottom:0; }
+      .footer { flex-direction:column; gap:5px; padding-top:20px; }
+      .launcher { right:15px; bottom:18px; padding:12px 17px; }
+      .chat { right:12px; left:12px; bottom:83px; width:auto; height:min(610px,calc(100dvh - 99px)); }
+      .chat-head { padding:14px; }
+      .chat-tools { gap:7px; }
+      .dialog-head { padding:18px 20px; }
+      .dialog-body { padding:0 20px 20px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <div class="notice">独立交互演示 · 虚构商品与政策；当前使用本地知识检索，未接 AI 模型／真实订单。</div>
+  <header class="header wrap">
+    <a class="brand" href="#top" aria-label="桌间，返回顶部"><span class="brand-mark" aria-hidden="true">间</span><span><span class="brand-name">桌间</span><br><span class="utility">DESK OBJECTS · DEMO STORE</span></span></a>
+    <nav class="nav" aria-label="主导航"><a href="#products">本周陈列</a><button class="text-button" data-open-rules>服务说明</button></nav>
+  </header>
+  <main class="wrap" id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">把日常放在手边</div>
+        <h1 id="hero-title">把桌面，留给<br>喜欢的东西。</h1>
+        <p>一盏刚好的灯，一只顺手的杯子。<br>为工作与小小的休息，留出舒服的一角。</p>
+        <div class="actions"><button class="primary" data-open-chat>问问购物助手 <span aria-hidden="true">↗</span></button><a class="secondary" href="#products">看看本周陈列</a></div>
+      </div>
+      <figure class="hero-stage">
+        <svg viewBox="0 0 660 420" role="img" aria-label="蓝色台灯、雾蓝水杯和银灰托盘的桌面陈列示意">
+          <defs><pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#dce5f4" stroke-width=".7"/></pattern></defs>
+          <rect x="12" y="14" width="636" height="370" rx="18" fill="#edf2f9"/><rect x="12" y="14" width="636" height="370" rx="18" fill="url(#grid)"/>
+          <path d="M12 302L648 68V384H12Z" fill="#e3ebf8"/><ellipse cx="332" cy="350" rx="259" ry="19" fill="#cbd8eb"/>
+          <rect x="34" y="345" width="592" height="13" rx="5" fill="#b5c6df"/>
+          <ellipse cx="208" cy="326" rx="72" ry="15" fill="#173fae"/><ellipse cx="208" cy="321" rx="72" ry="14" fill="#2455df"/>
+          <path d="M208 316V218L286 137" fill="none" stroke="#2455df" stroke-width="14" stroke-linecap="round"/><circle cx="208" cy="218" r="12" fill="#173fae"/>
+          <path d="M275 127Q287 118 301 129L348 163L311 209L264 173Q251 161 260 147Z" fill="#2455df"/><path d="M311 209L348 163" stroke="#b7ccff" stroke-width="9" stroke-linecap="round"/>
+          <path d="M390 313Q387 301 404 297L549 285Q564 283 571 293L593 315Q599 326 583 330L423 342Q412 343 405 334Z" fill="#8fa5c3"/>
+          <path d="M400 310L552 295L577 318L420 331Z" fill="#c6d3e5"/>
+          <path d="M504 234H524Q550 234 550 255Q550 277 524 277H513" fill="none" stroke="#7799b8" stroke-width="12"/>
+          <path d="M444 224H517L513 296Q480 316 448 296Z" fill="#9fbdcf"/><ellipse cx="480" cy="224" rx="36" ry="10" fill="#c5d8e3"/><ellipse cx="480" cy="224" rx="26" ry="6" fill="#7799b8"/>
+          <path d="M110 87H167M110 87V121M556 66V99H585" fill="none" stroke="#94acd1" stroke-width="1.5"/>
+          <text x="38" y="399" fill="#617080" font-size="10" font-family="Consolas,monospace" letter-spacing="2">A QUIET CORNER, WITHIN REACH.</text>
+        </svg>
+        <figcaption class="stage-label"><span>折臂台灯 × 雾蓝杯 × 叠边托盘</span><span>演示商品 · 矢量示意</span></figcaption>
+      </figure>
+    </section>
+    <section id="products" aria-labelledby="products-title">
+      <div class="section-head"><div><h2 id="products-title">本周桌面陈列</h2><p>先看看喜欢哪件，有问题随时问。</p></div><span class="utility">SMALL OBJECTS, EVERY DAY.</span></div>
+      <div class="products">
+        <article class="product">
+          <div class="product-picture"><svg viewBox="0 0 320 207" role="img" aria-label="钴蓝色折臂台灯"><ellipse cx="150" cy="177" rx="67" ry="9" fill="#d0dbed"/><ellipse cx="150" cy="170" rx="52" ry="11" fill="#2455df"/><path d="M150 166V103L203 47" fill="none" stroke="#2455df" stroke-width="10" stroke-linecap="round"/><circle cx="150" cy="103" r="8" fill="#173fae"/><path d="M191 39Q200 31 211 39L244 64L216 98L184 73Q175 66 182 55Z" fill="#2455df"/><path d="M216 98L244 64" stroke="#aec5ff" stroke-width="7" stroke-linecap="round"/></svg></div>
+          <div class="product-content"><div class="product-title"><h3>折臂台灯</h3><span class="price">¥169</span></div><p>钴蓝 · 三档亮度<br>USB-C 供电，陪你读一会儿书。</p><button class="product-question" data-question="台灯怎么调光，需要充电吗？">问问这盏灯 <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="product">
+          <div class="product-picture"><svg viewBox="0 0 320 207" role="img" aria-label="雾蓝色陶瓷水杯"><ellipse cx="155" cy="179" rx="67" ry="9" fill="#d0dbed"/><path d="M192 74H212Q248 74 248 108Q248 140 210 140H197" fill="none" stroke="#7799b8" stroke-width="16"/><path d="M109 61H207L201 163Q158 188 115 163Z" fill="#9fbdcf"/><ellipse cx="158" cy="61" rx="49" ry="14" fill="#c5d8e3"/><ellipse cx="158" cy="61" rx="36" ry="8" fill="#7799b8"/><path d="M126 82L129 145" stroke="#b7cfdf" stroke-width="7" stroke-linecap="round"/></svg></div>
+          <div class="product-content"><div class="product-title"><h3>雾蓝水杯</h3><span class="price">¥68</span></div><p>陶瓷 · 350 mL<br>把手留一点弧度，握住刚好。</p><button class="product-question" data-question="水杯容量多大，可以放洗碗机吗？">问问这只杯 <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="product">
+          <div class="product-picture"><svg viewBox="0 0 320 207" role="img" aria-label="银灰色圆角叠边托盘"><ellipse cx="158" cy="165" rx="107" ry="12" fill="#d0dbed"/><path d="M54 108Q50 96 65 91L233 69Q248 67 256 78L278 127Q284 140 266 144L96 166Q83 168 76 157Z" fill="#8fa5c3"/><path d="M67 108L240 85L262 130L93 151Z" fill="#c6d3e5"/><path d="M91 151L262 130" fill="none" stroke="#e0e8f2" stroke-width="3"/></svg></div>
+          <div class="product-content"><div class="product-title"><h3>叠边托盘</h3><span class="price">¥49</span></div><p>铝制 · 22 × 12 cm<br>让钥匙、眼镜，都有自己的位置。</p><button class="product-question" data-question="托盘尺寸多大，怎么清洁？">问问这只盘 <span aria-hidden="true">↗</span></button></div>
+        </article>
+      </div>
+    </section>
+    <section class="service-band" aria-label="演示服务政策摘要">
+      <div class="service-item"><strong>两个工作日内发出</strong><span>现货订单的演示发货约定</span></div>
+      <div class="service-item"><strong>订单满 ¥129 包邮</strong><span>中国大陆地区，未满运费 ¥8</span></div>
+      <div class="service-item"><strong>服务政策，随时可查</strong><span>点击回答下方的依据，查看完整条款</span></div>
+    </section>
+    <footer class="footer"><span>桌间 DEMO STORE · 虚构商店，无购买或支付功能</span><button class="text-button" data-open-rules>查看演示 FAQ 规则 ↗</button></footer>
+  </main>
+  <button class="launcher" id="launcher" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-10a9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 10h8M7 14h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>问问小序</span></button>
+  <section class="chat" id="chat" aria-label="购物问答" hidden>
+    <header class="chat-head"><div><div class="chat-name">小序 · 购物问答</div><div class="chat-status">8 条服务说明，回答有据可查</div></div><div class="chat-tools"><button data-open-rules>规则</button><button id="reset">重置</button><button id="close-chat" aria-label="关闭购物问答">关闭</button></div></header>
+    <div class="messages" id="messages" role="log" aria-label="对话记录" aria-live="polite" aria-relevant="additions"></div>
+    <div class="quick-questions" aria-label="快捷问法"><button data-question="多久发货？">多久发货？</button><button data-question="满多少包邮？">满多少包邮？</button><button data-question="可以退换吗？">可以退换吗？</button><button data-question="怎么联系人工？">联系人工</button></div>
+    <form class="composer" id="composer"><label class="sr-only" for="question">输入商品或服务问题</label><input id="question" type="text" maxlength="240" placeholder="问问商品、配送或退换…" autocomplete="off"><button id="send" type="submit" disabled>发送</button></form>
+    <p class="privacy-note">对话仅在当前页面显示。请勿填写真实个人信息或订单号。</p>
+  </section>
+  <dialog id="rules-dialog" aria-labelledby="rules-title"><header class="dialog-head"><h2 id="rules-title">演示 FAQ 与服务说明</h2><button data-close-dialog="rules-dialog">关闭</button></header><div class="dialog-body"><p class="dialog-intro">以下是这间虚构商店的全部问答依据。未覆盖的问题会引导至联系人工流程。</p><div id="rules-list"></div></div></dialog>
+  <dialog id="handoff-dialog" aria-labelledby="handoff-title"><header class="dialog-head"><h2 id="handoff-title">联系人工的请求流程</h2><button data-close-dialog="handoff-dialog">关闭</button></header><div class="dialog-body"><p class="dialog-intro">这里只展示联系流程和请求预览，不会联系真实客服或发送消息。</p><ol class="steps"><li>选择问题类型，整理你希望解决的事情。</li><li>在真实店铺的官方客服渠道确认资料与处理方案。</li><li>由人工回复并确认后续安排。</li></ol><label class="request-label" for="request-type">问题类型</label><select id="request-type"><option>商品咨询</option><option>配送与订单</option><option>退换与售后</option><option>其他问题</option></select><button class="primary" id="preview-request" style="margin-top:18px">生成请求预览</button><p class="request-preview" id="request-preview" role="status" hidden></p></div></dialog>
+  <script>
+    'use strict';
+    // 全部为自建虚构条款；检索只匹配这些关键词，不调用网络或模型。
+    const faqs = [
+      { id:'dispatch', title:'发货时效条款', terms:['发货','出库','几天发','什么时候发','多久发'], answer:'现货商品在下单后 2 个工作日内发出，周末与节假日顺延。发出后的到达时间由配送地区决定。这里不能查询真实物流。' },
+      { id:'shipping', title:'配送与运费条款', terms:['包邮','运费','配送','寄到','邮费','送到'], answer:'演示配送范围为中国大陆地区。商品实付满 ¥129 包邮，未满运费为 ¥8；本页没有实际下单或支付入口。' },
+      { id:'returns', title:'退换服务条款', terms:['退货','退换','退款','不喜欢','质量','坏了','破损'], answer:'演示政策支持收货后 7 天内申请未使用商品的退换，需保留商品、配件与包装。破损或质量问题先整理情况，再通过人工渠道确认处理方式。' },
+      { id:'lamp', title:'台灯使用说明', terms:['台灯','灯光','调光','亮度','充电','供电','电池'], answer:'折臂台灯的演示售价为 ¥169，使用 USB-C 供电，不内置电池。按底座开关键可切换三档亮度，适合桌面阅读。' },
+      { id:'cup', title:'水杯使用说明', terms:['水杯','杯子','容量','洗碗机','陶瓷','350'], answer:'雾蓝水杯的演示售价为 ¥68，容量为 350 mL，材质为陶瓷。日常可手洗，也可放在洗碗机上层；请避免碰撞杯口与把手。' },
+      { id:'tray', title:'托盘使用说明', terms:['托盘','盘子','尺寸','清洁','铝制','收纳'], answer:'叠边托盘的演示售价为 ¥49，尺寸为 22 × 12 cm，材质为铝。用柔软湿布擦拭后晾干即可，不建议长时间浸泡或使用硬质刷具。' },
+      { id:'order', title:'订单变更说明', terms:['订单','改地址','修改地址','取消','物流','快递','查单'], answer:'此演示不读取真实订单，无法查询、取消或修改订单。你可以查看联系人工流程，了解请求如何整理；请不要在这里填写真实订单号。', handoff:true },
+      { id:'human', title:'人工服务说明', terms:['人工','客服','联系','投诉','找人','转接'], answer:'需要人工确认的问题，可以先选择问题类型并整理简要情况，再前往真实店铺的官方客服渠道。本页只提供联系请求的预览，不发送消息。', handoff:true }
+    ];
+    const byId = id => document.getElementById(id);
+    const chat = byId('chat'), launcher = byId('launcher'), messages = byId('messages');
+    const input = byId('question'), send = byId('send');
+    let requestQuestion = '', lastDialogTrigger = null, composing = false;
+    function openChat() {
+      chat.hidden = false;
+      launcher.setAttribute('aria-expanded', 'true');
+      input.focus();
+    }
+    function closeChat() {
+      chat.hidden = true;
+      launcher.setAttribute('aria-expanded', 'false');
+      launcher.focus();
+    }
+    function openDialog(id) {
+      lastDialogTrigger = document.activeElement;
+      const dialog = byId(id);
+      if (!dialog.open) dialog.showModal();
+    }
+    function openRules(faqId) {
+      openDialog('rules-dialog');
+      if (faqId) requestAnimationFrame(() => byId('rule-' + faqId).scrollIntoView({ block:'center' }));
+    }
+    function openHandoff(question) {
+      requestQuestion = question;
+      byId('request-preview').hidden = true;
+      openDialog('handoff-dialog');
+    }
+    function addMessage(text, user = false, faq = null, handoff = false, questionContext = '') {
+      const message = document.createElement('article');
+      message.className = 'message' + (user ? ' user' : '');
+      const author = document.createElement('span');
+      author.className = 'sr-only';
+      author.textContent = user ? '你：' : '购物问答：';
+      const content = document.createElement('p');
+      content.textContent = text;
+      message.append(author, content);
+      if (faq) {
+        const citation = document.createElement('button');
+        citation.className = 'citation';
+        citation.textContent = '依据：' + faq.title;
+        citation.addEventListener('click', () => openRules(faq.id));
+        message.append(citation);
+      }
+      if (handoff) {
+        const action = document.createElement('button');
+        action.className = 'handoff-action';
+        action.textContent = '查看联系人工流程';
+        action.addEventListener('click', () => openHandoff(questionContext));
+        message.append(action);
+      }
+      messages.append(message);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function retrieve(question) {
+      const normalized = question.toLowerCase().replace(/\s+/g, '');
+      let best = null, highest = 0;
+      for (const faq of faqs) {
+        const score = faq.terms.reduce((sum, term) => sum + (normalized.includes(term) ? Math.min(term.length, 4) : 0), 0);
+        if (score > highest) { highest = score; best = faq; }
+      }
+      return best;
+    }
+    function ask(raw) {
+      const question = raw.trim().slice(0, 240);
+      if (!question) return;
+      openChat();
+      addMessage(question, true);
+      input.value = '';
+      send.disabled = true;
+      const faq = retrieve(question);
+      if (faq) addMessage(faq.answer, false, faq, Boolean(faq.handoff), question);
+      else addMessage('这条问题还没有对应的演示说明。你可以查看联系人工流程，整理需要确认的事情。', false, faqs[7], true, question);
+    }
+    function resetConversation() {
+      messages.replaceChildren();
+      input.value = '';
+      requestQuestion = '';
+      send.disabled = true;
+      byId('request-preview').replaceChildren();
+      byId('request-preview').hidden = true;
+      byId('request-type').selectedIndex = 0;
+      addMessage('你好，我是小序。关于这三件商品、发货、运费和退换，我可以帮你找到对应说明。点击回答下方的“依据”可查看条款。');
+      if (!chat.hidden) input.focus();
+    }
+    for (const faq of faqs) {
+      const rule = document.createElement('article');
+      rule.id = 'rule-' + faq.id;
+      rule.className = 'faq-rule';
+      const title = document.createElement('h3');
+      title.textContent = faq.title;
+      const answer = document.createElement('p');
+      answer.textContent = faq.answer;
+      const terms = document.createElement('small');
+      terms.textContent = '可识别问法：' + faq.terms.join('、');
+      rule.append(title, answer, terms);
+      byId('rules-list').append(rule);
+    }
+    launcher.addEventListener('click', () => chat.hidden ? openChat() : closeChat());
+    byId('close-chat').addEventListener('click', closeChat);
+    byId('reset').addEventListener('click', resetConversation);
+    input.addEventListener('input', () => { send.disabled = !input.value.trim(); });
+    input.addEventListener('compositionstart', () => { composing = true; });
+    input.addEventListener('compositionend', () => { composing = false; });
+    byId('composer').addEventListener('submit', event => { event.preventDefault(); if (!composing) ask(input.value); });
+    document.querySelectorAll('[data-open-chat]').forEach(button => button.addEventListener('click', openChat));
+    document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => ask(button.dataset.question)));
+    document.querySelectorAll('[data-open-rules]').forEach(button => button.addEventListener('click', () => openRules()));
+    document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => byId(button.dataset.closeDialog).close()));
+    document.querySelectorAll('dialog').forEach(dialog => dialog.addEventListener('close', () => lastDialogTrigger?.focus()));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !document.querySelector('dialog[open]') && !chat.hidden) { event.preventDefault(); closeChat(); }
+    });
+    byId('request-type').addEventListener('change', () => { byId('request-preview').hidden = true; });
+    byId('preview-request').addEventListener('click', () => {
+      const preview = byId('request-preview');
+      preview.textContent = '联系请求预览 · 未发送\n问题类型：' + byId('request-type').value + '\n问题摘要：' + (requestQuestion || '请先在问答中描述一个虚构问题。') + '\n\n实际联系时，请在店铺官方客服渠道确认后提交。';
+      preview.hidden = false;
+    });
+    resetConversation();
+  </script>
+</body>
+</html>
