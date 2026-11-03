@@ -88,6 +88,6 @@ AI automation · E-commerce systems · Browser extensions · Independent Android
 
 可以先交付一条范围明确的流程，例如“视频进入素材库后自动分析”“商品资料到 Shopify 草稿”或“邮件到人工审核台”；也可以围绕现有工具进行集成和维护。
 
-[查看服务与交付方式](services.md) · [使用需求沟通提纲](project-brief.md) · [发起项目沟通](https://github.com/super-chestnut/portfolio/issues/new)
+[查看服务与交付方式](services.md) · [使用需求沟通提纲](project-brief.md) · [微信项目咨询](https://super-chestnut.github.io/portfolio/#contact)
 
 本作品集采用匿名业务描述。公司项目展示设计与实现经验；Android 应用截图使用演示数据，流程图是重新绘制的公开抽象。公开材料不包含公司源码、后台权限或客户资料。

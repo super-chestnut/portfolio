@@ -47,6 +47,8 @@
     .hero-support { padding-bottom: 5px; }
     .hero-support .lead { font-size: 19px; line-height: 1.65; font-weight: 600; }
     .hero-support .intro { color: var(--muted); font-size: 14px; line-height: 1.8; margin-top: 9px; }
+    .hero-price { margin-top: 12px; color: var(--muted); font-size: 12px; }
+    .hero-price a { color: var(--teal); font-weight: 650; }
     .hero-bottom { display: flex; justify-content: space-between; align-items: center; gap: 26px; margin-top: 30px; padding-bottom: 42px; }
     .actions { display: flex; gap: 12px; flex-wrap: wrap; }
     .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 10px 20px; border: 1px solid var(--teal); border-radius: 8px; color: white; background: var(--teal); text-decoration: none; font-size: 14px; font-weight: 650; line-height: 1.5; transition: background .16s ease, transform .16s ease; }
@@ -76,6 +78,7 @@
     .sample h3 { margin-top: 6px; font: 650 21px/1.5 var(--display); letter-spacing: -.4px; }
     .sample-desc { color: var(--muted); font-size: 14px; line-height: 1.8; margin-top: 8px; }
     .sample-route { margin-top: 11px; font-size: 12px; color: #607781; }
+    .sample-spec { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.8; }
     .sample-disclaimer { display: flex; align-items: flex-start; gap: 10px; margin-top: 28px; padding: 15px 18px; border-left: 3px solid #91b8bb; background: var(--mist); border-radius: 0 7px 7px 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
     .sample-disclaimer strong { color: var(--ink); font-weight: 600; }
     details.more-work { border-block: 1px solid var(--line); margin-top: 28px; }
@@ -86,7 +89,7 @@
     .more-work[open] > summary::after { content: "−"; }
     .more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 760px; margin: 5px auto 32px; }
     .more-grid .player-shell { max-width: 320px; margin-inline: auto; }
-    .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route { max-width: 320px; margin-inline: auto; }
+    .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 320px; margin-inline: auto; }
     .more-grid .sample-meta { margin-top: 16px; }
     .more-grid h3 { margin-top: 6px; }
     .more-grid .sample-desc { margin-top: 8px; }
@@ -100,7 +103,16 @@
     .service h3 { margin-top: 9px; font: 650 23px/1.4 var(--display); letter-spacing: -.3px; }
     .service p { margin-top: 13px; color: var(--muted); font-size: 14px; }
     .service-bottom { display: block; margin-top: 23px; color: var(--ink); font-size: 12px; font-weight: 600; }
+    .service-price { display: block; margin-top: 13px; color: var(--teal); font: 650 30px/1.4 var(--display); }
+    .service-price span { margin-left: 5px; font: 500 13px/1.6 var(--body); }
     .process-note { margin-top: 18px; color: var(--muted); font-size: 13px; }
+    .cooperation { margin-top: 32px; }
+    .cooperation h3 { font: 650 20px/1.5 var(--display); }
+    .cooperation ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; margin: 16px 0 0; padding: 0; list-style: none; counter-reset: cooperation; }
+    .cooperation li { border-top: 1px solid var(--line); padding-top: 13px; counter-increment: cooperation; }
+    .cooperation li::before { content: counter(cooperation, decimal-leading-zero); display: block; color: var(--teal); font-size: 12px; font-weight: 650; }
+    .cooperation strong { display: block; margin-top: 5px; font-size: 14px; }
+    .cooperation li p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.8; }
     .case-section { padding: 74px 0 72px; margin-top: 82px; background: #eaf0f3; border-block: 1px solid var(--line); }
     .case-heading { max-width: 680px; margin-bottom: 32px; }
     .case-heading p { margin-top: 13px; color: var(--muted); font-size: 14px; }
@@ -176,7 +188,7 @@
       .sample-grid { grid-template-columns: 1fr; gap: 37px; max-width: 460px; margin-inline: auto; }
       .player-shell { max-width: 352px; margin-inline: auto; }
       .sample-grid video { max-height: 626px; }
-      .sample-meta, .sample h3, .sample-desc, .sample-route { max-width: 352px; margin-inline: auto; }
+      .sample-meta, .sample h3, .sample-desc, .sample-route, .sample-spec { max-width: 352px; margin-inline: auto; }
       .sample-meta { font-size: 11px; margin-top: 16px; }
       .sample h3 { font-size: 22px; margin-top: 6px; }
       .sample-desc { margin-top: 8px; font-size: 14px; }
@@ -185,7 +197,7 @@
       .more-work > summary { gap: 12px; }
       .more-work > summary .summary-label { display: block; margin-top: 3px; }
       .more-grid { grid-template-columns: 1fr; max-width: 352px; gap: 34px; }
-      .more-grid .player-shell, .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route { max-width: 352px; }
+      .more-grid .player-shell, .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 352px; }
       .content-section { padding-top: 58px; }
       .service-grid { grid-template-columns: 1fr; }
       .service, .service + .service, .service:last-child { padding: 25px 0; border-left: 0; }
@@ -193,6 +205,7 @@
       .service h3 { font-size: 22px; }
       .service p { margin-top: 10px; }
       .service-bottom { margin-top: 14px; }
+      .cooperation ol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; }
       .case-section { margin-top: 58px; padding-block: 52px; }
       .case-link { grid-template-columns: 1fr 24px; gap: 9px 15px; padding-block: 23px; }
       .case-category { grid-column: 1 / -1; padding: 0; }
@@ -235,6 +248,7 @@
         <div class="hero-support">
           <p class="lead">并把重复内容生产流程自动化。</p>
           <p class="intro">从商品图片与产品资料出发，制作产品展示、生活场景和 AI UGC 风格短视频，再把持续制作中的素材、审核与交付连接起来。</p>
+          <p class="hero-price"><a href="#services">单条试做 ¥699 起</a> · 10–15 秒 · 1 轮小修改</p>
         </div>
       </div>
       <div class="hero-bottom">
@@ -261,6 +275,7 @@
           </div>
           <div class="sample-meta"><span>生活场景广告</span><span>20 秒 · 竖屏</span></div>
           <h3>一家人的柔软角落</h3>
+          <p class="sample-spec">20 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
           <p class="sample-desc">用孩子和猫待在地毯上的生活反差开场，串起触感细节、亲子共读与完整空间，给商品一个可感知的使用场景。</p>
           <p class="sample-route">创意开头 / 多镜头叙事 / 人物与宠物场景<br>制作路线：AI 故事板</p>
         </article>
@@ -273,6 +288,7 @@
           </div>
           <div class="sample-meta"><span>AI UGC 风格口播</span><span>15 秒 · 竖屏</span></div>
           <h3>餐桌旁的日常小意外</h3>
+          <p class="sample-spec">15 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
           <p class="sample-desc">人物讲解与商品镜头交替，围绕泼洒、擦拭和日常使用组织内容，将卖点放进更容易理解的生活情境。</p>
           <p class="sample-route">合成人物 / 口播与商品镜头 / 英文字幕<br>制作路线：UGC 口播</p>
         </article>
@@ -285,6 +301,7 @@
           </div>
           <div class="sample-meta"><span>居家讲解与产品细节</span><span>约 10 秒 · 竖屏</span></div>
           <h3>从空间全貌看到材质细节</h3>
+          <p class="sample-spec">约 10 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
           <p class="sample-desc">从室内讲解切到整毯、花纹与边角，再回到空间搭配。通过整体和局部的切换，让观众看清商品。</p>
           <p class="sample-route">人物讲解 / 整体与局部 / 材质呈现<br>制作路线：一镜直出</p>
         </article>
@@ -302,6 +319,7 @@
             </div>
             <div class="sample-meta"><span>生活叙事广告</span><span>15 秒 · 竖屏</span></div>
             <h3>一块地毯，一段亲子时光</h3>
+            <p class="sample-spec">15 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
             <p class="sample-desc">从孩子搭积木到母亲加入游戏，以近景动作与双人互动组织亲子故事，再用俯拍呈现商品全貌。</p>
             <p class="sample-route">人物互动 / 多镜头组织 / 空间展示<br>制作路线：AI 故事板</p>
           </article>
@@ -314,6 +332,7 @@
             </div>
             <div class="sample-meta"><span>产品体验分镜</span><span>16 秒 · 竖屏</span></div>
             <h3>从开箱到客厅搭配</h3>
+            <p class="sample-spec">16 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
             <p class="sample-desc">包装展示、脚踩触感、擦拭情境与客厅搭配依次展开，把多个商品信息点组织成一条完整短片。</p>
             <p class="sample-route">分镜拆解 / 商品细节 / 人物与产品<br>制作路线：分镜生成</p>
           </article>
@@ -327,11 +346,23 @@
         <p class="section-note">先确认用途、创意与交付范围，<br>再选择适合当前需求的制作方式。</p>
       </div>
       <div class="service-grid">
-        <article class="service"><span class="service-tag">先确认风格</span><h3>单条视频试做</h3><p>围绕一个商品和一个创意方向，制作产品展示、生活场景或 AI UGC 风格短视频，先磨合素材、脚本与反馈方式。</p><span class="service-bottom">明确时长、语言、比例与修改范围</span></article>
+        <article class="service"><span class="service-tag">先确认风格</span><h3>单条视频试做</h3><strong class="service-price">¥699<span>/ 条起</span></strong><p>1 个商品、1 个创意方向，制作 10–15 秒的 9:16 竖屏 MP4。包含基础脚本梳理、画面制作、英文字幕与后期，以及 1 轮小修改。</p><span class="service-bottom">含常规生成成本；复杂镜头、多语言等另行报价</span></article>
         <article class="service"><span class="service-tag">扩展内容角度</span><h3>多创意视频制作</h3><p>围绕同一商品规划不同卖点、开头与场景。区分独立创意、开头变体和尺寸版本，组织审核及成片交付。</p><span class="service-bottom">按创意与版本确认交付清单</span></article>
         <article class="service"><span class="service-tag">连接重复工作</span><h3>生产流程自动化</h3><p>从一条具体流程开始：竞品分析入库、素材审核归档，或商品资料到 Shopify 草稿，开发适合团队使用的工具。</p><span class="service-bottom">明确输入、输出与人工确认点</span></article>
       </div>
       <p class="process-note">合作前会结合商品复杂度、素材情况、镜头数量和交付要求确认方案与报价。</p>
+      <div class="cooperation" aria-labelledby="cooperation-title">
+        <h3 id="cooperation-title">合作流程</h3>
+        <ol>
+          <li><strong>询价</strong><p>说明商品、用途、数量和参考风格。</p></li>
+          <li><strong>确认范围</strong><p>确认脚本方向、规格、费用与修改范围。</p></li>
+          <li><strong>付款</strong><p>双方约定付款方式与节点，确认后启动。</p></li>
+          <li><strong>制作</strong><p>按确认方向制作，提供成片预览。</p></li>
+          <li><strong>验收</strong><p>核对约定内容，完成范围内修改。</p></li>
+          <li><strong>交付</strong><p>按约定格式交付成片与版本清单。</p></li>
+        </ol>
+        <p class="process-note"><a class="text-link" href="https://super-chestnut.github.io/portfolio/services.html">查看完整服务与交付说明 ↗</a></p>
+      </div>
     </section>
 
     <section class="case-section" id="cases" aria-labelledby="cases-title">
