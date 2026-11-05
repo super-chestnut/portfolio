@@ -491,7 +491,11 @@
           try {
             if (video.error) video.load();
             await video.play();
-          } catch {
+          } catch (error) {
+            if (error?.name === 'AbortError') {
+              if (video.paused) { clearLoading(); showPaused(); }
+              return;
+            }
             showError();
           }
         });
