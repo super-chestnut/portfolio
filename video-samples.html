@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Lizi — AI product video samples</title>
+  <meta name="description" content="Three finished AI product video samples by Lizi: presenter-led creative, product details and storyboard-led storytelling.">
+  <style>
+    :root{--paper:#f5f8fa;--surface:#fff;--ink:#163b43;--muted:#566e77;--teal:#086c70;--line:#d5e0e5;--focus:#b25113}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{width:min(1120px,calc(100% - 64px));margin:0 auto;padding:38px 0 44px}
+    header{display:flex;justify-content:space-between;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:23px}
+    .name{margin:0;color:var(--teal);font:650 23px/1.3 "Bahnschrift","Segoe UI",sans-serif;letter-spacing:-.6px}
+    h1{margin:0;font:650 clamp(23px,3vw,35px)/1.25 "Bahnschrift","Segoe UI",sans-serif;letter-spacing:-.8px}
+    .intro{margin:20px 0 25px;max-width:810px;color:var(--muted);font-size:15px}
+    .samples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+    article{min-width:0}video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;border-radius:12px;background:#dce4e7}
+    h2{margin:17px 0 5px;font:650 20px/1.35 "Bahnschrift","Segoe UI",sans-serif;letter-spacing:-.3px}
+    .spec{margin:0;color:var(--teal);font-size:12px;font-weight:600}
+    .role{margin:10px 0 0;color:var(--muted);font-size:14px}
+    a{color:var(--teal);text-underline-offset:3px}a:focus-visible,video:focus-visible{outline:3px solid var(--focus);outline-offset:5px}
+    .direct{display:inline-block;margin-top:10px;font-size:13px}
+    footer{margin-top:30px;padding-top:19px;border-top:1px solid var(--line);max-width:950px;font-size:12px;color:var(--muted)}
+    footer p{margin:0 0 7px}
+    @media(min-width:1400px){main{width:min(1040px,calc(100% - 80px))}}
+    @media(max-width:700px){main{width:min(420px,calc(100% - 36px));padding-top:25px}header{display:block}.name{margin-bottom:9px}.samples{grid-template-columns:1fr;gap:30px}.intro{font-size:14px}video{max-height:72vh}h2{margin-top:13px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header><p class="name">Lizi</p><h1>AI product video samples</h1></header>
+    <p class="intro">Finished product ads, from synthetic-presenter creative to product details and multi-shot storytelling. Press play to watch each complete sample.</p>
+    <section class="samples" aria-label="Three finished video samples">
+      <article>
+        <video controls playsinline preload="metadata" poster="assets/ugc-explainer.jpg" aria-label="Play a 15-second AI presenter and product video">
+          <source src="assets/ugc-explainer.mp4" type="video/mp4">
+          <a href="assets/ugc-explainer.mp4">Open the presenter-led sample</a>.
+        </video>
+        <h2>Presenter &amp; product story</h2>
+        <p class="spec">15 sec · 9:16 · 720 × 1280 · MP4</p>
+        <p class="role">I built and operated the workflow for script planning, AI generation, shot review, editing, captions and final assembly. The presenter is AI-generated.</p>
+        <a class="direct" href="assets/ugc-explainer.mp4">Open video file ↗</a>
+      </article>
+      <article>
+        <video controls playsinline preload="metadata" poster="assets/product-details.jpg" aria-label="Play a 10-second product detail video">
+          <source src="assets/product-details.mp4" type="video/mp4">
+          <a href="assets/product-details.mp4">Open the product-detail sample</a>.
+        </video>
+        <h2>Product details</h2>
+        <p class="spec">10 sec · 9:16 · 720 × 1280 · MP4</p>
+        <p class="role">I built and operated the generation and review workflow, then selected and assembled product and room shots with captions and audio.</p>
+        <a class="direct" href="assets/product-details.mp4">Open video file ↗</a>
+      </article>
+      <article>
+        <video controls playsinline preload="metadata" poster="assets/family-moments.jpg" aria-label="Play a 15-second storyboard-led lifestyle video">
+          <source src="assets/family-moments.mp4" type="video/mp4">
+          <a href="assets/family-moments.mp4">Open the storyboard-led sample</a>.
+        </video>
+        <h2>Storyboard-led lifestyle</h2>
+        <p class="spec">15 sec · 9:16 · 720 × 1280 · MP4</p>
+        <p class="role">I developed and operated the production workflow for story planning, shot generation, consistency review, editing and final delivery.</p>
+        <a class="direct" href="assets/family-moments.mp4">Open video file ↗</a>
+      </article>
+    </section>
+    <footer>
+      <p>People and scenes in these samples are AI-generated. These are production samples, not real customer testimonials or claims of measured advertising performance.</p>
+      <p>My contribution includes developing and operating the production workflows. Generative models produce the imagery; I handle planning, review, shot selection and final assembly. Sample files include English audio and captions.</p>
+    </footer>
+  </main>
+  <script>
+    document.querySelectorAll('video').forEach(current => current.addEventListener('play', () => {
+      document.querySelectorAll('video').forEach(other => { if(other !== current) other.pause(); });
+    }));
+  </script>
+</body>
+</html>
