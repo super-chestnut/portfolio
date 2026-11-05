@@ -69,7 +69,7 @@
     .sample-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
     .sample { min-width: 0; }
     .player-shell { position: relative; overflow: hidden; border-radius: var(--radius); background: #dae4e8; box-shadow: 0 1px 0 #163b4312; }
-    video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; background: #dce4e7; }
+    video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: contain; background: #dce4e7; }
     .play-overlay { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 20px; border: 1px solid #ffffffc9; border-radius: 30px; background: #075458f2; box-shadow: 0 4px 22px #102e4352; color: #fff; font-size: 15px; font-weight: 650; white-space: nowrap; }
     .play-overlay::before { content: ""; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid currentColor; }
     .play-overlay:hover { background: var(--teal-dark); }
@@ -82,6 +82,8 @@
     .sample-desc { color: var(--muted); font-size: 14px; line-height: 1.8; margin-top: 8px; }
     .sample-route { margin-top: 11px; font-size: 12px; color: #607781; }
     .sample-spec { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .sample-direct { display: inline-flex; margin-top: 10px; color: var(--teal); font-size: 12px; font-weight: 650; }
+    .sample-landscape video { aspect-ratio: 16 / 9; }
     .sample-disclaimer { display: flex; align-items: flex-start; gap: 10px; margin-top: 28px; padding: 15px 18px; border-left: 3px solid #91b8bb; background: var(--mist); border-radius: 0 7px 7px 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
     .sample-disclaimer strong { color: var(--ink); font-weight: 600; }
     details.more-work { border-block: 1px solid var(--line); margin-top: 28px; }
@@ -90,9 +92,10 @@
     .more-work > summary .summary-label { color: var(--muted); font-size: 12px; font-weight: 400; }
     .more-work > summary::after { content: "+"; width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #a5bac3; border-radius: 50%; font-size: 20px; font-weight: 400; flex-shrink: 0; }
     .more-work[open] > summary::after { content: "−"; }
-    .more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 760px; margin: 5px auto 32px; }
-    .more-grid .player-shell { max-width: 320px; margin-inline: auto; }
-    .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 320px; margin-inline: auto; }
+    .more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px 32px; max-width: 980px; margin: 5px auto 32px; align-items: start; }
+    .more-grid .sample-portrait .player-shell { max-width: 210px; margin-inline: auto; }
+    .more-grid .sample:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc((100% - 32px) / 2); justify-self: center; }
+    .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 100%; margin-inline: auto; }
     .more-grid .sample-meta { margin-top: 16px; }
     .more-grid h3 { margin-top: 6px; }
     .more-grid .sample-desc { margin-top: 8px; }
@@ -191,16 +194,19 @@
       .sample-grid { grid-template-columns: 1fr; gap: 37px; max-width: 460px; margin-inline: auto; }
       .player-shell { max-width: 352px; margin-inline: auto; }
       .sample-grid video { max-height: 626px; }
-      .sample-meta, .sample h3, .sample-desc, .sample-route, .sample-spec { max-width: 352px; margin-inline: auto; }
+      .sample-meta, .sample h3, .sample-desc, .sample-route, .sample-spec, .sample-direct { max-width: 352px; margin-inline: auto; }
       .sample-meta { font-size: 11px; margin-top: 16px; }
       .sample h3 { font-size: 22px; margin-top: 6px; }
       .sample-desc { margin-top: 8px; font-size: 14px; }
       .sample-route { margin-top: 11px; }
+      .sample-direct { display: block; }
       .sample-disclaimer { margin-top: 28px; }
       .more-work > summary { gap: 12px; }
       .more-work > summary .summary-label { display: block; margin-top: 3px; }
       .more-grid { grid-template-columns: 1fr; max-width: 352px; gap: 34px; }
-      .more-grid .player-shell, .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 352px; }
+      .more-grid .player-shell, .more-grid .sample-portrait .player-shell, .more-grid .sample-meta, .more-grid h3, .more-grid .sample-desc, .more-grid .sample-route, .more-grid .sample-spec { max-width: 352px; }
+      .more-grid .sample:last-child:nth-child(odd) { grid-column: auto; width: 100%; }
+      .more-grid .sample-landscape .player-shell { width: 100%; }
       .content-section { padding-top: 58px; }
       .service-grid { grid-template-columns: 1fr; }
       .service, .service + .service, .service:last-child { padding: 25px 0; border-left: 0; }
@@ -267,78 +273,125 @@
     <section class="shell" id="selected-work" aria-labelledby="selected-title">
       <div class="section-heading work-heading">
         <div><span class="section-kicker">SELECTED VIDEO WORK</span><h2 id="selected-title">同一种商品，不同的表达。</h2></div>
-        <p class="section-note">生活故事、人物讲解与商品细节。<br>点击播放器观看完整短片，可打开声音。</p>
+        <p class="section-note">先看空间改造、人物讲解与亲子故事。<br>下方另有横屏、宠物与功能创意精选。</p>
       </div>
       <div class="sample-grid">
-        <article class="sample">
+        <article class="sample sample-portrait">
           <div class="player-shell">
-            <video controls playsinline preload="none" poster="assets/family-story.jpg" aria-label="一家人的柔软角落，20 秒 AI 生活场景广告">
-              <source src="assets/family-story.mp4" type="video/mp4">
-              你的浏览器暂不支持视频播放。<a href="assets/family-story.mp4">打开这条样片</a>。
+            <video controls playsinline preload="none" poster="assets/room-styling-story.jpg" aria-label="保留旧沙发，换一个客厅重心，15 秒 AI 广告创意">
+              <source src="assets/room-styling-story.mp4" type="video/mp4">
+              你的浏览器暂不支持视频播放。<a href="assets/room-styling-story.mp4">打开这条样片</a>。
             </video>
           </div>
-          <div class="sample-meta"><span>生活场景广告</span><span>20 秒 · 竖屏</span></div>
-          <h3>一家人的柔软角落</h3>
-          <p class="sample-spec">20 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
-          <p class="sample-desc">用孩子和猫待在地毯上的生活反差开场，串起触感细节、亲子共读与完整空间，给商品一个可感知的使用场景。</p>
-          <p class="sample-route">创意开头 / 多镜头叙事 / 人物与宠物场景<br>制作路线：AI 故事板</p>
+          <div class="sample-meta"><span>空间改造广告</span><span>15 秒 · 竖屏</span></div>
+          <h3>保留旧沙发，换一个客厅重心</h3>
+          <p class="sample-spec">15 秒 · 9:16 · 1080 × 1920<br>英文口播与字幕 · MP4</p>
+          <p class="sample-desc">从空地板铺入地毯，再用靠枕呼应图案，将一次空间搭配变化组织成开场、阅读场景与购买引导。</p>
+          <p class="sample-route">前后变化 / 搭配创意 / 场景与购买引导</p>
+          <a class="sample-direct" href="assets/room-styling-story.mp4">直接打开样片 ↗</a>
         </article>
-        <article class="sample">
+        <article class="sample sample-portrait">
           <div class="player-shell">
-            <video controls playsinline preload="none" poster="assets/ugc-explainer.jpg" aria-label="餐桌旁的日常小意外，15 秒 AI UGC 风格广告">
-              <source src="assets/ugc-explainer.mp4" type="video/mp4">
-              你的浏览器暂不支持视频播放。<a href="assets/ugc-explainer.mp4">打开这条样片</a>。
+            <video controls playsinline preload="none" poster="assets/ugc-unboxing.jpg" aria-label="从开箱期待，到看清商品，约 10 秒 AI 广告创意">
+              <source src="assets/ugc-unboxing.mp4" type="video/mp4">
+              你的浏览器暂不支持视频播放。<a href="assets/ugc-unboxing.mp4">打开这条样片</a>。
             </video>
           </div>
-          <div class="sample-meta"><span>AI UGC 风格口播</span><span>15 秒 · 竖屏</span></div>
-          <h3>餐桌旁的日常小意外</h3>
-          <p class="sample-spec">15 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
-          <p class="sample-desc">人物讲解与商品镜头交替，围绕泼洒、擦拭和日常使用组织内容，将卖点放进更容易理解的生活情境。</p>
-          <p class="sample-route">合成人物 / 口播与商品镜头 / 英文字幕<br>制作路线：UGC 口播</p>
+          <div class="sample-meta"><span>AI UGC 商品讲解</span><span>约 10 秒 · 竖屏</span></div>
+          <h3>从开箱期待，到看清商品</h3>
+          <p class="sample-spec">约 10 秒 · 9:16 · 720 × 1280<br>英文口播与字幕 · MP4</p>
+          <p class="sample-desc">以人物拿着包装开场，接上整毯、抚摸和翻角镜头，用紧凑的讲解呈现花纹、触感与背面。</p>
+          <p class="sample-route">合成人物讲解 / 商品全貌 / 触感与边角</p>
+          <a class="sample-direct" href="assets/ugc-unboxing.mp4">直接打开样片 ↗</a>
         </article>
-        <article class="sample">
+        <article class="sample sample-portrait">
           <div class="player-shell">
-            <video controls playsinline preload="none" poster="assets/product-details.jpg" aria-label="从空间全貌看到材质细节，约 10 秒 AI 产品介绍广告">
-              <source src="assets/product-details.mp4" type="video/mp4">
-              你的浏览器暂不支持视频播放。<a href="assets/product-details.mp4">打开这条样片</a>。
+            <video controls playsinline preload="none" poster="assets/family-storytelling.jpg" aria-label="一块地毯，一段亲子时光，15 秒 AI 广告创意">
+              <source src="assets/family-storytelling.mp4" type="video/mp4">
+              你的浏览器暂不支持视频播放。<a href="assets/family-storytelling.mp4">打开这条样片</a>。
             </video>
           </div>
-          <div class="sample-meta"><span>居家讲解与产品细节</span><span>约 10 秒 · 竖屏</span></div>
-          <h3>从空间全貌看到材质细节</h3>
-          <p class="sample-spec">约 10 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
-          <p class="sample-desc">从室内讲解切到整毯、花纹与边角，再回到空间搭配。通过整体和局部的切换，让观众看清商品。</p>
-          <p class="sample-route">人物讲解 / 整体与局部 / 材质呈现<br>制作路线：一镜直出</p>
+          <div class="sample-meta"><span>亲子生活叙事</span><span>15 秒 · 竖屏</span></div>
+          <h3>一块地毯，一段亲子时光</h3>
+          <p class="sample-spec">15 秒 · 9:16 · 1080 × 1920<br>英文口播与字幕 · MP4</p>
+          <p class="sample-desc">从孩子搭积木到母亲加入游戏，以近景动作与双人互动推进故事，再用俯拍呈现商品全貌与购买引导。</p>
+          <p class="sample-route">人物互动 / 多镜头故事 / 商品收尾</p>
+          <a class="sample-direct" href="assets/family-storytelling.mp4">直接打开样片 ↗</a>
         </article>
       </div>
-      <div class="sample-disclaimer"><p><strong>AI 合成画面；作为制作案例展示。</strong> 以上为既往工作项目成片，已用于 Meta 投放。合成人物与使用情境不作为真实消费者证言或产品性能实测；本人负责的制作与系统工作见下方项目案例。</p></div>
+      <div class="sample-disclaimer"><p><strong>既往制作案例，含 AI 合成人物与场景。</strong> 功能与使用情境用于展示创意制作，不作为真实消费者证言或产品性能实测；本人负责的制作与系统工作见下方项目案例。点击播放器可打开声音。</p></div>
       <details class="more-work">
-        <summary><span>再看两条样片 <span class="summary-label">亲子生活叙事 · 产品体验分镜</span></span></summary>
+        <summary><span>更多精选 · 5 条 <span class="summary-label">横屏问题解决 · 宠物家庭 · 家居氛围</span></span></summary>
         <div class="more-grid">
-          <article class="sample">
+          <article class="sample sample-landscape">
             <div class="player-shell">
-              <video controls playsinline preload="none" poster="assets/family-moments.jpg" aria-label="一块地毯，一段亲子时光，15 秒 AI 生活叙事广告">
-                <source src="assets/family-moments.mp4" type="video/mp4">
-                你的浏览器暂不支持视频播放。<a href="assets/family-moments.mp4">打开这条样片</a>。
+              <video controls playsinline preload="none" poster="assets/spill-cleanup-landscape.jpg" aria-label="从泼洒意外，到清洁情境，约 15 秒 AI 广告创意">
+                <source src="assets/spill-cleanup-landscape.mp4" type="video/mp4">
+                你的浏览器暂不支持视频播放。<a href="assets/spill-cleanup-landscape.mp4">打开这条样片</a>。
               </video>
             </div>
-            <div class="sample-meta"><span>生活叙事广告</span><span>15 秒 · 竖屏</span></div>
-            <h3>一块地毯，一段亲子时光</h3>
-            <p class="sample-spec">15 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
-            <p class="sample-desc">从孩子搭积木到母亲加入游戏，以近景动作与双人互动组织亲子故事，再用俯拍呈现商品全貌。</p>
-            <p class="sample-route">人物互动 / 多镜头组织 / 空间展示<br>制作路线：AI 故事板</p>
+            <div class="sample-meta"><span>问题与解决创意</span><span>约 15 秒 · 横屏</span></div>
+            <h3>从泼洒意外，到清洁情境</h3>
+            <p class="sample-spec">约 15 秒 · 16:9 · 1920 × 1080<br>英文口播与字幕 · MP4</p>
+            <p class="sample-desc">用泼洒制造开场冲突，连接擦拭、机洗与空间收尾，展示围绕一条商品卖点组织广告的方式。</p>
+            <p class="sample-route">痛点开头 / 功能情境 / 横屏广告</p>
+            <a class="sample-direct" href="assets/spill-cleanup-landscape.mp4">直接打开样片 ↗</a>
           </article>
-          <article class="sample">
+          <article class="sample sample-portrait">
             <div class="player-shell">
-              <video controls playsinline preload="none" poster="assets/product-storyboard.jpg" aria-label="从开箱到客厅搭配，16 秒 AI 产品体验分镜广告">
-                <source src="assets/product-storyboard.mp4" type="video/mp4">
-                你的浏览器暂不支持视频播放。<a href="assets/product-storyboard.mp4">打开这条样片</a>。
+              <video controls playsinline preload="none" poster="assets/pet-care-demo.jpg" aria-label="围绕养宠日常，组织商品卖点，16 秒 AI 广告创意">
+                <source src="assets/pet-care-demo.mp4" type="video/mp4">
+                你的浏览器暂不支持视频播放。<a href="assets/pet-care-demo.mp4">打开这条样片</a>。
               </video>
             </div>
-            <div class="sample-meta"><span>产品体验分镜</span><span>16 秒 · 竖屏</span></div>
-            <h3>从开箱到客厅搭配</h3>
-            <p class="sample-spec">16 秒 · 9:16 竖屏 · 英文字幕 · MP4</p>
-            <p class="sample-desc">包装展示、脚踩触感、擦拭情境与客厅搭配依次展开，把多个商品信息点组织成一条完整短片。</p>
-            <p class="sample-route">分镜拆解 / 商品细节 / 人物与产品<br>制作路线：分镜生成</p>
+            <div class="sample-meta"><span>宠物与清洁创意</span><span>16 秒 · 竖屏</span></div>
+            <h3>围绕养宠日常，组织商品卖点</h3>
+            <p class="sample-spec">16 秒 · 9:16 · 1080 × 1920<br>英文口播与字幕 · MP4</p>
+            <p class="sample-desc">宠物陪伴、擦拭、机洗和背面依次展开，将生活情境与不同产品信息点组合成一条功能演示创意。</p>
+            <p class="sample-route">宠物场景 / 多卖点组织 / 产品细节</p>
+            <a class="sample-direct" href="assets/pet-care-demo.mp4">直接打开样片 ↗</a>
+          </article>
+          <article class="sample sample-landscape">
+            <div class="player-shell">
+              <video controls playsinline preload="none" poster="assets/home-atmosphere-landscape.jpg" aria-label="把商品放进有生活感的房间，20 秒 AI 广告创意">
+                <source src="assets/home-atmosphere-landscape.mp4" type="video/mp4">
+                你的浏览器暂不支持视频播放。<a href="assets/home-atmosphere-landscape.mp4">打开这条样片</a>。
+              </video>
+            </div>
+            <div class="sample-meta"><span>家居氛围短片</span><span>20 秒 · 横屏</span></div>
+            <h3>把商品放进有生活感的房间</h3>
+            <p class="sample-spec">20 秒 · 16:9 · 1920 × 1080<br>英文画面文字 · MP4</p>
+            <p class="sample-desc">客厅、餐区、阅读与咖啡细节交替，通过空间搭配和局部镜头建立家居氛围，适合品牌内容方向。</p>
+            <p class="sample-route">空间搭配 / 家居氛围 / 多场景展示</p>
+            <a class="sample-direct" href="assets/home-atmosphere-landscape.mp4">直接打开样片 ↗</a>
+          </article>
+          <article class="sample sample-landscape">
+            <div class="player-shell">
+              <video controls playsinline preload="none" poster="assets/non-slip-landscape.jpg" aria-label="从滑动卷边的困扰切入，约 14 秒 AI 广告创意">
+                <source src="assets/non-slip-landscape.mp4" type="video/mp4">
+                你的浏览器暂不支持视频播放。<a href="assets/non-slip-landscape.mp4">打开这条样片</a>。
+              </video>
+            </div>
+            <div class="sample-meta"><span>痛点与产品细节</span><span>约 14 秒 · 横屏</span></div>
+            <h3>从滑动卷边的困扰切入</h3>
+            <p class="sample-spec">约 14 秒 · 16:9 · 1920 × 1080<br>英文口播与字幕 · MP4</p>
+            <p class="sample-desc">以地毯滑动、卷边的情境提出问题，再切入背面结构与不同空间，展示痛点开场到商品介绍的创意结构。</p>
+            <p class="sample-route">痛点切入 / 背面特写 / 多空间搭配</p>
+            <a class="sample-direct" href="assets/non-slip-landscape.mp4">直接打开样片 ↗</a>
+          </article>
+          <article class="sample sample-landscape">
+            <div class="player-shell">
+              <video controls playsinline preload="none" poster="assets/pet-household-landscape.jpg" aria-label="一个商品，多种家庭使用场景，20 秒 AI 广告创意">
+                <source src="assets/pet-household-landscape.mp4" type="video/mp4">
+                你的浏览器暂不支持视频播放。<a href="assets/pet-household-landscape.mp4">打开这条样片</a>。
+              </video>
+            </div>
+            <div class="sample-meta"><span>宠物家庭镜头组合</span><span>20 秒 · 横屏</span></div>
+            <h3>一个商品，多种家庭使用场景</h3>
+            <p class="sample-spec">20 秒 · 16:9 · 1920 × 1080<br>英文画面文字 · MP4</p>
+            <p class="sample-desc">围绕触感、洗衣、猫和狗组织一组家庭场景，让同一商品在不同镜头中保持内容主题。</p>
+            <p class="sample-route">宠物家庭 / 产品细节 / 横屏镜头组合</p>
+            <a class="sample-direct" href="assets/pet-household-landscape.mp4">直接打开样片 ↗</a>
           </article>
         </div>
       </details>
@@ -413,41 +466,59 @@
         playButton.className = 'play-overlay';
         playButton.textContent = '播放';
         playButton.setAttribute('aria-label', '播放《' + title + '》');
-        const feedback = document.createElement('div');
+        const feedback = document.createElement('p');
         feedback.className = 'player-feedback';
         feedback.hidden = true;
         feedback.setAttribute('role', 'status');
-        const message = document.createElement('p');
-        message.textContent = '暂时未能开始播放，请重试，或直接打开样片。';
-        const directLink = document.createElement('a');
-        directLink.href = video.querySelector('source').getAttribute('src');
-        directLink.textContent = '直接打开样片 ↗';
-        directLink.setAttribute('aria-label', '直接打开《' + title + '》');
-        feedback.append(message, directLink);
+        feedback.setAttribute('aria-live', 'polite');
         video.parentElement.append(playButton, feedback);
+        let loadingTimer;
+        const clearLoading = () => {
+          clearTimeout(loadingTimer);
+          feedback.hidden = true;
+        };
         const showPaused = () => {
           playButton.hidden = false;
           playButton.textContent = video.ended ? '重播' : '播放';
           playButton.setAttribute('aria-label', (video.ended ? '重播《' : '播放《') + title + '》');
         };
+        const showError = () => {
+          clearTimeout(loadingTimer);
+          playButton.hidden = false;
+          playButton.textContent = '重试播放';
+          playButton.setAttribute('aria-label', '重试播放《' + title + '》');
+          feedback.textContent = '暂时未能播放，请重试，或使用下方“直接打开样片”。';
+          feedback.hidden = false;
+        };
+        const showLoading = () => {
+          clearTimeout(loadingTimer);
+          loadingTimer = setTimeout(() => {
+            if (!video.paused && video.readyState < 3) {
+              feedback.textContent = '样片加载中…也可以使用下方“直接打开样片”。';
+              feedback.hidden = false;
+            }
+          }, 700);
+        };
         playButton.addEventListener('click', async () => {
-          feedback.hidden = true;
+          clearLoading();
+          playButton.textContent = '加载中…';
           try {
+            if (video.error) video.load();
             await video.play();
           } catch {
-            playButton.hidden = false;
-            playButton.textContent = '重试播放';
-            playButton.setAttribute('aria-label', '重试播放《' + title + '》');
-            feedback.hidden = false;
+            showError();
           }
         });
         video.addEventListener('play', () => {
           playButton.hidden = true;
-          feedback.hidden = true;
           videos.forEach(other => { if (other !== video) other.pause(); });
         });
-        video.addEventListener('pause', showPaused);
-        video.addEventListener('ended', showPaused);
+        video.addEventListener('waiting', showLoading);
+        video.addEventListener('stalled', showLoading);
+        video.addEventListener('playing', clearLoading);
+        video.addEventListener('pause', () => { clearLoading(); showPaused(); });
+        video.addEventListener('ended', () => { clearLoading(); showPaused(); });
+        video.addEventListener('error', showError);
       });
       const more = document.querySelector('.more-work');
       more.addEventListener('toggle', () => {

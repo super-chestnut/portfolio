@@ -74,7 +74,8 @@
     .sample-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
     .sample { min-width:0; }
     .player-shell { position:relative; overflow:hidden; border-radius:var(--radius); background:#dae4e8; }
-    video { display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover; background:#dce4e7; }
+    video { display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:contain; background:#dce4e7; }
+    .landscape video { aspect-ratio:16/9; }
     .play-overlay { position:absolute; z-index:1; top:50%; left:50%; transform:translate(-50%,-50%); display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:12px 20px; border:1px solid #ffffffc9; border-radius:30px; background:#075458f2; box-shadow:0 4px 22px #102e4352; color:#fff; font-size:15px; font-weight:650; white-space:nowrap; }
     .play-overlay::before { content:""; width:0; height:0; border-top:6px solid transparent; border-bottom:6px solid transparent; border-left:9px solid currentColor; }
     .play-overlay:hover { background:var(--teal-dark); }
@@ -88,6 +89,15 @@
     .sample-direct { display:inline-block; margin-top:7px; color:var(--teal); font-size:12px; font-weight:600; }
     .sample-disclaimer { margin-top:28px; padding:15px 18px; border-left:3px solid #91b8bb; background:var(--mist); border-radius:0 7px 7px 0; color:var(--muted); font-size:12px; }
     .sample-disclaimer strong { color:var(--ink); }
+    .sample-library { margin-top:34px; padding:20px 0; border-block:1px solid var(--line); }
+    .sample-library summary { display:flex; align-items:center; justify-content:space-between; gap:16px; color:var(--teal); cursor:pointer; font-weight:650; list-style:none; }
+    .sample-library summary::-webkit-details-marker { display:none; }
+    .sample-library summary::after { content:"+"; margin-left:auto; font-size:26px; line-height:1; }
+    .sample-library[open] summary::after { content:"−"; }
+    .library-summary-note { color:var(--muted); font-size:12px; font-weight:400; }
+    .library-intro { max-width:790px; margin-top:16px; color:var(--muted); font-size:13px; }
+    .library-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:34px 28px; margin-top:24px; align-items:start; }
+    .library-grid .portrait { max-width:240px; margin-inline:auto; }
     .content-section { padding-top:76px; }
     .service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-block:1px solid var(--line); }
     .service { min-width:0; padding:28px 26px 28px 0; }
@@ -180,6 +190,12 @@
       .sample-grid { grid-template-columns:minmax(0,1fr); gap:34px; }
       .player-shell { max-width:330px; margin-inline:auto; }
       .sample-meta { flex-direction:row; }
+      .sample-library summary { flex-wrap:wrap; gap:8px; font-size:14px; }
+      .library-summary-note { order:3; width:100%; }
+      .sample-library summary::after { margin-left:0; }
+      .library-grid { grid-template-columns:minmax(0,1fr); }
+      .library-grid .landscape { max-width:none; }
+      .library-grid .portrait { max-width:280px; }
       .sample h3 { font-size:23px; }
       .sample-desc { font-size:14px; }
       .content-section { padding-top:54px; }
@@ -218,11 +234,11 @@
         </div>
         <figure class="hero-preview">
           <div class="preview-strip">
-            <img src="../assets/ugc-explainer.jpg" alt="AI-generated presenter in a home product video" width="720" height="1280" fetchpriority="high">
-            <img src="../assets/product-details.jpg" alt="Home setting from a product detail video" width="720" height="1280">
-            <img src="../assets/family-moments.jpg" alt="AI-generated family scene from a storyboard-led video" width="720" height="1280">
+            <img src="../assets/room-styling-story.jpg" alt="AI-generated room styling scene with a patterned rug" width="1080" height="1920" fetchpriority="high">
+            <img src="../assets/ugc-unboxing.jpg" alt="AI-generated presenter introducing and unfolding a rug" width="720" height="1280">
+            <img src="../assets/family-storytelling.jpg" alt="AI-generated parent and child playing with blocks on a rug" width="1080" height="1920">
           </div>
-          <figcaption><strong>Product · UGC-style · Lifestyle</strong>Complete video samples below. People and scenes are AI-generated.</figcaption>
+          <figcaption><strong>Room styling · AI UGC · Family story</strong>Complete video samples below. People and scenes are AI-generated.</figcaption>
         </figure>
       </div>
       <div class="hero-bottom">
@@ -234,49 +250,120 @@
     <section class="shell" id="samples" aria-labelledby="samples-title">
       <div class="section-heading work-heading">
         <div><span class="section-kicker">SELECTED VIDEO WORK</span><h2 id="samples-title">See the finished videos.</h2></div>
-        <p class="section-note">Three ways to present a product: a presenter-led explanation, a closer look at details, and a short lifestyle story.</p>
+        <p class="section-note">Three distinct creative directions: a room transformation, a compact AI presenter ad and a family lifestyle story.</p>
       </div>
       <div class="sample-grid">
         <article class="sample">
-          <div class="player-shell">
-            <video controls playsinline preload="none" poster="../assets/ugc-explainer.jpg" aria-label="A Small Everyday Surprise">
-              <source src="../assets/ugc-explainer.mp4" type="video/mp4">
-              Your browser cannot play this video. <a href="../assets/ugc-explainer.mp4">Open the MP4 sample</a>.
+          <div class="player-shell portrait">
+            <video controls playsinline preload="none" poster="../assets/room-styling-story.jpg" aria-label="Room Styling Story">
+              <source src="../assets/room-styling-story.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/room-styling-story.mp4">Open the MP4 sample</a>.
             </video>
           </div>
-          <div class="sample-meta"><span>AI UGC-STYLE CREATIVE</span><span>15 sec · Vertical</span></div>
-          <h3>A Small Everyday Surprise</h3>
-          <p class="sample-desc">A synthetic presenter, product cutaways and English narration bring a short product story together.</p>
-          <p class="sample-spec">15 sec · 9:16 · 720 × 1280<br>English audio &amp; captions · MP4</p>
-          <a class="sample-direct" href="../assets/ugc-explainer.mp4">Open video directly ↗</a>
+          <div class="sample-meta"><span>ROOM TRANSFORMATION</span><span>15 sec · Vertical</span></div>
+          <h3>Room Styling Story</h3>
+          <p class="sample-desc">An empty floor becomes a styled reading corner, with a reveal, coordinated details and a clear closing invitation.</p>
+          <p class="sample-spec">15 sec · 9:16 · 1080 × 1920<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/room-styling-story.mp4">Open video directly ↗</a>
         </article>
         <article class="sample">
-          <div class="player-shell">
-            <video controls playsinline preload="none" poster="../assets/product-details.jpg" aria-label="Home Comfort and Product Details">
-              <source src="../assets/product-details.mp4" type="video/mp4">
-              Your browser cannot play this video. <a href="../assets/product-details.mp4">Open the MP4 sample</a>.
+          <div class="player-shell portrait">
+            <video controls playsinline preload="none" poster="../assets/ugc-unboxing.jpg" aria-label="AI UGC Product Ad">
+              <source src="../assets/ugc-unboxing.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/ugc-unboxing.mp4">Open the MP4 sample</a>.
             </video>
           </div>
-          <div class="sample-meta"><span>PRODUCT SHOWCASE</span><span>10 sec · Vertical</span></div>
-          <h3>Home Comfort &amp; Product Details</h3>
-          <p class="sample-desc">Room views and close-ups show the product in context, then bring attention to its pattern and details.</p>
-          <p class="sample-spec">10 sec · 9:16 · 720 × 1280<br>English audio &amp; captions · MP4</p>
-          <a class="sample-direct" href="../assets/product-details.mp4">Open video directly ↗</a>
+          <div class="sample-meta"><span>AI UGC-STYLE CREATIVE</span><span>10.08 sec · Vertical</span></div>
+          <h3>AI UGC Product Ad</h3>
+          <p class="sample-desc">A synthetic presenter introduces the rug, unfolds it and moves through texture and backing details in a compact product ad.</p>
+          <p class="sample-spec">10.08 sec · 9:16 · 720 × 1280<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/ugc-unboxing.mp4">Open video directly ↗</a>
         </article>
         <article class="sample">
-          <div class="player-shell">
-            <video controls playsinline preload="none" poster="../assets/family-moments.jpg" aria-label="A Moment of Family Time">
-              <source src="../assets/family-moments.mp4" type="video/mp4">
-              Your browser cannot play this video. <a href="../assets/family-moments.mp4">Open the MP4 sample</a>.
+          <div class="player-shell portrait">
+            <video controls playsinline preload="none" poster="../assets/family-storytelling.jpg" aria-label="Family Lifestyle Story">
+              <source src="../assets/family-storytelling.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/family-storytelling.mp4">Open the MP4 sample</a>.
             </video>
           </div>
           <div class="sample-meta"><span>STORYBOARD-LED LIFESTYLE</span><span>15 sec · Vertical</span></div>
-          <h3>A Moment of Family Time</h3>
-          <p class="sample-desc">A parent-child scene moves between play, interaction and a wider product view across a planned shot sequence.</p>
-          <p class="sample-spec">15 sec · 9:16 · 720 × 1280<br>English audio &amp; captions · MP4</p>
-          <a class="sample-direct" href="../assets/family-moments.mp4">Open video directly ↗</a>
+          <h3>Family Lifestyle Story</h3>
+          <p class="sample-desc">A child builds with blocks, a parent joins in, and a wider product view completes the planned family scene.</p>
+          <p class="sample-spec">15 sec · 9:16 · 1080 × 1920<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/family-storytelling.mp4">Open video directly ↗</a>
         </article>
       </div>
+      <details class="sample-library" id="more-samples">
+        <summary><span>Explore 5 more video concepts</span><span class="library-summary-note">Product features · Landscape formats · Home atmosphere</span></summary>
+        <p class="library-intro">More ways to build a product creative, including 16:9 landscape videos. These AI-generated concepts illustrate visual directions, not verified product performance.</p>
+        <div class="sample-grid library-grid">
+        <article class="sample">
+          <div class="player-shell landscape">
+            <video controls playsinline preload="none" poster="../assets/spill-cleanup-landscape.jpg" aria-label="Spill-to-Cleanup Concept">
+              <source src="../assets/spill-cleanup-landscape.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/spill-cleanup-landscape.mp4">Open the MP4 sample</a>.
+            </video>
+          </div>
+          <div class="sample-meta"><span>PROBLEM–SOLUTION CONCEPT</span><span>15.14 sec · Landscape</span></div>
+          <h3>Spill-to-Cleanup Concept</h3>
+          <p class="sample-desc">An AI-generated concept moves from an everyday spill to wiping, machine-washing imagery and a finished room.</p>
+          <p class="sample-spec">15.14 sec · 16:9 · 1920 × 1080<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/spill-cleanup-landscape.mp4">Open video directly ↗</a>
+        </article>
+        <article class="sample">
+          <div class="player-shell portrait">
+            <video controls playsinline preload="none" poster="../assets/pet-care-demo.jpg" aria-label="Pet &amp; Care Demo">
+              <source src="../assets/pet-care-demo.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/pet-care-demo.mp4">Open the MP4 sample</a>.
+            </video>
+          </div>
+          <div class="sample-meta"><span>PRODUCT FEATURE CONCEPT</span><span>16 sec · Vertical</span></div>
+          <h3>Pet &amp; Care Demo</h3>
+          <p class="sample-desc">Pets, cleanup, washing and backing details form a short AI-generated feature demonstration.</p>
+          <p class="sample-spec">16 sec · 9:16 · 1080 × 1920<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/pet-care-demo.mp4">Open video directly ↗</a>
+        </article>
+        <article class="sample">
+          <div class="player-shell landscape">
+            <video controls playsinline preload="none" poster="../assets/home-atmosphere-landscape.jpg" aria-label="Home Atmosphere">
+              <source src="../assets/home-atmosphere-landscape.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/home-atmosphere-landscape.mp4">Open the MP4 sample</a>.
+            </video>
+          </div>
+          <div class="sample-meta"><span>LIFESTYLE MONTAGE</span><span>20 sec · Landscape</span></div>
+          <h3>Home Atmosphere</h3>
+          <p class="sample-desc">A slower AI-generated montage connects living, dining and reading spaces with close-up home details.</p>
+          <p class="sample-spec">20 sec · 16:9 · 1920 × 1080<br>English on-screen text / audio · MP4</p>
+          <a class="sample-direct" href="../assets/home-atmosphere-landscape.mp4">Open video directly ↗</a>
+        </article>
+        <article class="sample">
+          <div class="player-shell landscape">
+            <video controls playsinline preload="none" poster="../assets/non-slip-landscape.jpg" aria-label="Non-Slip Creative Concept">
+              <source src="../assets/non-slip-landscape.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/non-slip-landscape.mp4">Open the MP4 sample</a>.
+            </video>
+          </div>
+          <div class="sample-meta"><span>PROBLEM–SOLUTION CONCEPT</span><span>13.96 sec · Landscape</span></div>
+          <h3>Non-Slip Creative Concept</h3>
+          <p class="sample-desc">An AI-generated concept introduces sliding and curled-edge concerns, then uses backing and room shots to present the idea.</p>
+          <p class="sample-spec">13.96 sec · 16:9 · 1920 × 1080<br>English audio &amp; captions · MP4</p>
+          <a class="sample-direct" href="../assets/non-slip-landscape.mp4">Open video directly ↗</a>
+        </article>
+        <article class="sample">
+          <div class="player-shell landscape">
+            <video controls playsinline preload="none" poster="../assets/pet-household-landscape.jpg" aria-label="Pet-Friendly Home Concept">
+              <source src="../assets/pet-household-landscape.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="../assets/pet-household-landscape.mp4">Open the MP4 sample</a>.
+            </video>
+          </div>
+          <div class="sample-meta"><span>MULTI-SCENE PRODUCT CONCEPT</span><span>20 sec · Landscape</span></div>
+          <h3>Pet-Friendly Home Concept</h3>
+          <p class="sample-desc">An AI-generated household montage combines texture, washing imagery, cats and dogs across several product scenes.</p>
+          <p class="sample-spec">20 sec · 16:9 · 1920 × 1080<br>English on-screen text / audio · MP4</p>
+          <a class="sample-direct" href="../assets/pet-household-landscape.mp4">Open video directly ↗</a>
+        </article>
+        </div>
+      </details>
       <div class="sample-disclaimer"><p><strong>Previous production samples, with AI-generated people and scenes.</strong> These illustrate video production work; they are not real customer testimonials or product performance tests. My production and development responsibilities are described in the projects below.</p></div>
     </section>
 
@@ -354,6 +441,10 @@
   <script>
     (() => {
       const videos = Array.from(document.querySelectorAll('video'));
+      const library = document.querySelector('.sample-library');
+      if (library) library.addEventListener('toggle', () => {
+        if (!library.open) library.querySelectorAll('video').forEach(video => video.pause());
+      });
       videos.forEach(video => {
         const title = video.getAttribute('aria-label');
         const button = document.createElement('button');
