@@ -4,7 +4,7 @@
 
 [观看视频样片与服务](https://super-chestnut.github.io/portfolio/#selected-work) · [微信项目咨询](https://super-chestnut.github.io/portfolio/#contact) · [在线交互演示](https://super-chestnut.github.io/portfolio/examples/customer-assistant.html)
 
-网页版首页精选展示生活场景、AI UGC 口播和产品细节三条成片，并提供另外两条完整样片；下面保留全部项目的技术档案。
+网页版首页主打空间改造、AI UGC 开箱与亲子叙事三条成片，另有五条精选。想先看自己商品的效果，可以从 [¥399 首单简版试做](https://super-chestnut.github.io/portfolio/#services) 开始。
 
 我帮助电商与内容团队，把素材采集、视频分析、内容生产、商品运营和客户服务中的重复工作，整理成可以实际运行的系统。也独立开发并持续维护 Android 双人生活记录产品。
 
